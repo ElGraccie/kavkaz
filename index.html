@@ -550,8 +550,8 @@
   @media(max-width:900px){
     #three{z-index:2}
     .lamp{z-index:1}
-    .l1{left:7%;right:auto;--w:58px;--cord:34px}
-    .l2{left:auto;right:7%;--w:44px;--cord:70px}
+    .l1{left:3%;right:auto;--w:50px;--cord:26px}
+    .l2{left:14%;right:auto;--w:40px;--cord:84px}
   }
 </style>
 </head>
@@ -852,7 +852,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var asp = W() / H(); var sc = Math.min(1, asp * 1.7);
       rig.scale.setScalar(sc);
       rig.position.x = asp > 1.2 ? asp * 0.95 : 0;
-      rig.position.y = -1.5 * sc - (asp < 1.2 ? 0.2 : 0);
+      rig.position.y = -1.5 * sc + (asp < 1.2 ? 0.28 : 0);
     }
     fit(); window.addEventListener('resize', fit);
 
