@@ -553,6 +553,12 @@
     .l1{left:3%;right:auto;--w:50px;--cord:26px}
     .l2{left:14%;right:auto;--w:40px;--cord:84px}
   }
+  /* м'яка нижня межа 3D-сцени, щоб не було різкого краю */
+  #three{-webkit-mask-image:linear-gradient(180deg,#000 94%,transparent 100%);mask-image:linear-gradient(180deg,#000 94%,transparent 100%)}
+  /* «До меню» на комп'ютері — справа знизу */
+  @media(min-width:861px){
+    .tomenu{top:auto;left:auto;bottom:24px;right:clamp(18px,3vw,40px);transform:translateY(8px)}
+  }
 </style>
 </head>
 <body>
@@ -851,6 +857,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function fit(){
       var asp = W() / H(); var sc = Math.min(1, asp * 1.7);
       rig.scale.setScalar(sc);
+      var hs = asp < 1.2 ? 4.6 : 7.5; halo.scale.set(hs, hs, 1);
       rig.position.x = asp > 1.2 ? asp * 0.95 : 0;
       rig.position.y = -1.5 * sc + (asp < 1.2 ? 0.28 : 0);
     }
