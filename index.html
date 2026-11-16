@@ -660,30 +660,30 @@
   </div>
   <div class="featured-grid">
     <div class="feat">
-      <div class="photo art" data-ic="tumbler" aria-hidden="true"></div>
+      <div class="photo art" data-ic="hinkali" aria-hidden="true"></div>
       <div class="body">
         <div class="num">I</div>
-        <h3>Чача Дуруджи Велі Кахетинська 50%</h3>
-        <p>Виноградна, м'яка. Те, чим починають і чим закінчують. Приносять у глечику, наливають до краю.</p>
-        <span class="price">200 ₴ <small>/ 100 г</small></span>
+        <h3>Хінкалі з вишнею</h3>
+        <p>Незвична начинка з нашого меню: вишня, цукор, м'ятний песто й вершки.</p>
+        <span class="price">48 ₴ <small>/ шт</small></span>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="photo art" data-ic="skewer" aria-hidden="true"></div>
+      <div class="body">
+        <div class="num">II</div>
+        <h3>Каре ягня</h3>
+        <p>М'ясо з нашого мангала, приготоване на вугіллі. Ціна за 100 г.</p>
+        <span class="price">350 ₴ <small>/ 100 г</small></span>
       </div>
     </div>
     <div class="feat">
       <div class="photo art" data-ic="wine" aria-hidden="true"></div>
       <div class="body">
-        <div class="num">II</div>
-        <h3>Кіндзмараулі</h3>
-        <p>Напівсолодке червоне з Кахетії. П'ють охолодженим, з м'ясом і хінкалі. Глечик — 0,75 л.</p>
-        <span class="price">127 ₴ <small>/ 100 г</small></span>
-      </div>
-    </div>
-    <div class="feat">
-      <div class="photo art" data-ic="cup" aria-hidden="true"></div>
-      <div class="body">
         <div class="num">III</div>
-        <h3>Грузинський глінтвейн</h3>
-        <p>Гаряче вино з прянощами й медом. Подають зимою, завжди з пахощами кориці на весь зал.</p>
-        <span class="price">160 ₴ <small>/ порція</small></span>
+        <h3>Кіндзмараулі</h3>
+        <p>Напівсолодке червоне вино з Кахетії. До м'яса й хінкалі підходить найкраще.</p>
+        <span class="price">127 ₴ <small>/ 100 г</small></span>
       </div>
     </div>
   </div>
@@ -1254,6 +1254,19 @@ render('__all');
   cp.addEventListener('click', function(){
     var done = function(ok){ var t = cp.textContent; cp.textContent = ok ? 'Скопійовано ✓' : '+380630550101'; setTimeout(function(){ cp.textContent = 'Скопіювати номер'; }, 2200); };
     try { navigator.clipboard.writeText('+380630550101').then(function(){ done(true); }, function(){ done(false); }); } catch(e){ done(false); }
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#about"]'), function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector('#about .about');
+      if (!t || !t.scrollIntoView) return;
+      e.preventDefault();
+      t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'});
+    });
   });
 })();
 </script>
