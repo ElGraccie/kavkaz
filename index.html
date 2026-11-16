@@ -7,558 +7,372 @@
 <meta name="description" content="Кавказький двір в Умані: хінкалі, хачапурі, шашлик на мангалі, грузинські вина та чача. Меню, ціни, бронювання столу.">
 <script>(function(d){d.classList.add("js");try{if(matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("ready","done");}}catch(e){}setTimeout(function(){d.classList.add("ready","done")},9000)})(document.documentElement)</script>
 <meta name="theme-color" content="#130a06">
-<meta property="og:title" content="Кавказький двір — вино, вогонь, хліб">
-<meta property="og:description" content="Кавказька кухня на мангалі й у дров'яній печі. Грузинські вина, чача, хінкалі.">
-<meta property="og:type" content="restaurant">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍷%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Кавказький двір","servesCuisine":["Грузинська","Кавказька"],"telephone":"+380441234567","address":{"@type":"PostalAddress","streetAddress":"вул. Європейська, 34б","addressLocality":"Умань","addressRegion":"Черкаська область","addressCountry":"UA"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Onest:wght@300..700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --wine-900:#2a160c; --wine-800:#3a2014; --wine-700:#6a2018;
-    --wine-600:#8e2b20; --wine-500:#a8392b;
-    --gold:#e2a94e; --gold-soft:#f3cf8c; --gold-bright:#ffdc9a;
-    --cream:#fbf4e8; --cream-dim:#e3d9c8; --cream-soft:#cfc4b1;
-    --line:rgba(226,169,78,.28);
-    --smooth:cubic-bezier(.22,.9,.28,1);
-    --r-sm:14px; --r-md:22px; --r-lg:32px; --r-xl:44px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:
-      radial-gradient(1200px 700px at 70% -10%, #6a2018 0%, transparent 60%),
-      radial-gradient(900px 600px at 10% 20%, #3a2014 0%, transparent 55%),
-      #130a06;
-    color:var(--cream);font-family:'Onest','Inter',system-ui,sans-serif;
-    font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;
-    padding-top:76px;
-  }
-  body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:60;
-    background:radial-gradient(ellipse at center, transparent 55%, rgba(10,6,3,.55) 100%);
-    mix-blend-mode:multiply;
-  }
-  body::before{
-    content:"";position:fixed;inset:-50%;pointer-events:none;z-index:59;opacity:.03;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation:grain 8s steps(6) infinite;
-  }
-  @keyframes grain{
-    0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}
-    60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}
-  }
+:root{
+  --wine-900:#2a160c; --wine-800:#3a2014; --wine-700:#6a2018;
+  --wine-600:#8e2b20; --wine-500:#a8392b;
+  --gold:#e2a94e; --gold-soft:#f3cf8c; --gold-bright:#ffdc9a;
+  --cream:#fbf4e8; --cream-dim:#e3d9c8; --cream-soft:#cfc4b1;
+  --line:rgba(226,169,78,.28);
+  --smooth:cubic-bezier(.22,.9,.28,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(900px 420px at 55% -8%,rgba(255,170,70,.14),transparent 70%),radial-gradient(900px 600px at 85% -10%,rgba(168,57,43,.5),transparent 60%),
+    radial-gradient(700px 500px at 0% 30%,rgba(106,32,24,.45),transparent 60%),#110a06;
+  color:var(--cream);font-family:'Onest','Inter',system-ui,sans-serif;
+  font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  padding-top:76px;line-height:1.55;
+}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
 
-  /* ============ NAV ============ */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:70;
-    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-    padding:14px clamp(18px,4vw,44px);
-    background:rgba(19,10,6,.72);
-    backdrop-filter:blur(20px) saturate(140%);
-    -webkit-backdrop-filter:blur(20px) saturate(140%);
-    border-bottom:1px solid var(--line);
-    transition:background .6s var(--smooth),
-               backdrop-filter .6s var(--smooth),
-               border-color .6s var(--smooth),
-               padding .5s var(--smooth);
-  }
-  nav.scrolled{
-    background:linear-gradient(180deg, rgba(19,10,6,.62), rgba(19,10,6,0));
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-    border-bottom-color:transparent;
-    padding:10px clamp(18px,4vw,44px);
-  }
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:70;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:14px clamp(18px,4vw,44px);
+  background:rgba(19,10,6,.72);
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid var(--line);
+  transition:background .6s var(--smooth),backdrop-filter .6s var(--smooth),
+             border-color .6s var(--smooth),padding .5s var(--smooth);
+}
+nav.scrolled{
+  background:linear-gradient(180deg, rgba(19,10,6,.62), rgba(19,10,6,0));
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  border-bottom-color:transparent;
+  padding:10px clamp(18px,4vw,44px);
+}
+.brand{
+  grid-column:2;justify-self:center;
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(19px,2.3vw,27px);letter-spacing:.14em;
+  text-transform:uppercase;white-space:nowrap;
+  color:var(--cream);text-align:center;text-decoration:none;
+  padding:8px 22px;border-radius:999px;
+  text-shadow:0 2px 12px rgba(0,0,0,.8), 0 0 20px rgba(0,0,0,.5);
+  transition:all .5s var(--smooth);
+}
+.brand span{color:var(--gold-bright);text-shadow:0 0 18px rgba(226,169,78,.45), 0 2px 12px rgba(0,0,0,.8)}
+nav.scrolled .brand{
+  background:rgba(19,10,6,.78);
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border:1px solid var(--line);
+  box-shadow:0 8px 30px -10px rgba(0,0,0,.9);
+}
+.nav-left,.nav-right{
+  display:flex;align-items:center;gap:clamp(12px,2vw,26px);
+  transition:opacity .55s var(--smooth), transform .55s var(--smooth),visibility .55s var(--smooth);
+}
+.nav-right{justify-self:end}
+nav.scrolled .nav-left,nav.scrolled .nav-right{
+  opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none;
+}
+.navlinks a{
+  color:var(--cream-dim);text-decoration:none;font-size:12.5px;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  transition:color .3s var(--smooth);padding:4px 0;
+  text-shadow:0 1px 6px rgba(0,0,0,.6);
+}
+.navlinks a:hover{color:var(--gold-bright)}
+.navlinks a.book{
+  border:1px solid var(--gold);padding:9px 20px;color:var(--gold-bright);
+  border-radius:999px;letter-spacing:.14em;font-size:11.5px;
+  transition:all .35s var(--smooth);font-weight:600;
+}
+.navlinks a.book:hover{background:var(--gold);color:var(--wine-900);border-color:var(--gold-bright)}
+@media(max-width:860px){
+  nav{grid-template-columns:auto 1fr auto;padding:12px 16px}
+  nav.scrolled{padding:8px 16px}
+  .brand{grid-column:2;font-size:15px;letter-spacing:.1em;padding:6px 16px}
+  .navlinks a:not(.book){display:none}
+  .navlinks a[href="#menu"],.navlinks a[href="#kitchen"]{display:inline-block!important}
+}
+@media(max-width:420px){
+  .brand{font-size:13px;padding:5px 12px}
+  .navlinks a.book{padding:7px 14px;font-size:10.5px}
+}
 
-  .brand{
-    grid-column:2;justify-self:center;
-    font-family:'Cormorant Garamond',serif;font-weight:700;
-    font-size:clamp(19px,2.3vw,27px);letter-spacing:.14em;
-    text-transform:uppercase;white-space:nowrap;
-    color:var(--cream);text-align:center;text-decoration:none;
-    padding:8px 22px;border-radius:999px;
-    text-shadow:0 2px 12px rgba(0,0,0,.8), 0 0 20px rgba(0,0,0,.5);
-    transition:all .5s var(--smooth);
-  }
-  .brand span{color:var(--gold-bright);text-shadow:0 0 18px rgba(226,169,78,.45), 0 2px 12px rgba(0,0,0,.8)}
-  nav.scrolled .brand{
-    background:rgba(19,10,6,.78);
-    backdrop-filter:blur(16px) saturate(140%);
-    -webkit-backdrop-filter:blur(16px) saturate(140%);
-    border:1px solid var(--line);
-    box-shadow:0 8px 30px -10px rgba(0,0,0,.9);
-  }
+.hero{
+  position:relative;min-height:calc(100svh - 76px);display:grid;
+  grid-template-columns:1.05fr .95fr;align-items:center;
+  padding:20px clamp(20px,5vw,64px) 60px;gap:20px;
+}
+#three{position:absolute;inset:0;z-index:1}
+#three canvas{display:block}
+.glass-fallback{position:absolute;right:8%;top:50%;transform:translateY(-50%);z-index:2;display:none}
+.gf-body{
+  width:190px;height:230px;
+  background:radial-gradient(120% 90% at 30% 10%, rgba(255,255,255,.10), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 38%,#6b0a1c 42%, #45060f 70%, #2a0309 100%);
+  border-radius:50% 50% 45% 45% / 12% 12% 75% 75%;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:inset -14px -24px 50px rgba(0,0,0,.55),inset 8px 10px 24px rgba(255,255,255,.1),0 30px 70px rgba(0,0,0,.65);
+  position:relative;overflow:hidden;animation:spinGlass 12s ease-in-out infinite;
+}
+.gf-body::before{content:"";position:absolute;left:8%;top:6%;width:22%;height:68%;background:linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,0));border-radius:999px;filter:blur(2px)}
+.gf-body::after{content:"";position:absolute;left:0;right:0;top:42%;height:6px;background:linear-gradient(90deg, transparent, rgba(255,215,180,.4), transparent);filter:blur(1px)}
+.gf-stem{width:9px;height:82px;background:linear-gradient(180deg, rgba(107,10,28,.7), rgba(91,6,22,.9));margin:0 auto}
+.gf-base{width:96px;height:13px;background:linear-gradient(180deg, rgba(91,6,22,.9), rgba(0,0,0,.95));border-radius:999px;margin:0 auto;box-shadow:0 12px 34px rgba(0,0,0,.7)}
+@keyframes spinGlass{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
 
-  .nav-left,.nav-right{
-    display:flex;align-items:center;gap:clamp(12px,2vw,26px);
-    transition:opacity .55s var(--smooth), transform .55s var(--smooth),
-               visibility .55s var(--smooth);
-  }
-  .nav-right{justify-self:end}
-  nav.scrolled .nav-left,
-  nav.scrolled .nav-right{
-    opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none;
-  }
-  .navlinks a{
-    color:var(--cream-dim);text-decoration:none;font-size:12.5px;
-    letter-spacing:.14em;text-transform:uppercase;font-weight:500;
-    transition:color .3s var(--smooth);padding:4px 0;
-    text-shadow:0 1px 6px rgba(0,0,0,.6);
-  }
-  .navlinks a:hover{color:var(--gold-bright)}
-  .navlinks a.book{
-    border:1px solid var(--gold);padding:9px 20px;color:var(--gold-bright);
-    border-radius:999px;letter-spacing:.14em;font-size:11.5px;
-    transition:all .35s var(--smooth);font-weight:600;
-  }
-  .navlinks a.book:hover{background:var(--gold);color:var(--wine-900);border-color:var(--gold-bright)}
-  @media(max-width:860px){
-    nav{grid-template-columns:auto 1fr auto;padding:12px 16px}
-    nav.scrolled{padding:8px 16px}
-    .brand{grid-column:2;font-size:15px;letter-spacing:.1em;padding:6px 16px}
-    .navlinks a:not(.book){display:none}
-  }
-  @media(max-width:420px){
-    .brand{font-size:13px;padding:5px 12px}
-    .navlinks a.book{padding:7px 14px;font-size:10.5px}
-  }
+.hero-copy{position:relative;z-index:3;padding-top:20px}
+.eyebrow{
+  font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;
+  padding:8px 18px 8px 0;font-weight:600;
+}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold-bright);opacity:.9;box-shadow:0 0 8px var(--gold)}
+h1{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(52px,8.6vw,124px);line-height:.88;
+  letter-spacing:-.03em;margin-bottom:28px;
+}
+h1 em{
+  font-style:italic;font-weight:500;
+  background:linear-gradient(100deg,var(--gold-bright),var(--gold) 45%,#b57a26 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block;filter:drop-shadow(0 3px 16px rgba(226,169,78,.35));
+}
+.hero-copy p{max-width:44ch;color:var(--cream-dim);font-size:clamp(15px,1.2vw,17px);line-height:1.8;margin-bottom:40px;font-weight:400}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:17px 36px;transition:all .4s var(--smooth);border:1px solid transparent;font-weight:600;border-radius:999px}
+.btn-primary{background:linear-gradient(135deg,#a8392b,#6a2018);color:var(--cream);border-color:rgba(255,220,154,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px #a8392b}
+.btn-ghost{border-color:var(--gold);color:var(--gold-bright)}
+.btn-ghost:hover{border-color:var(--gold-bright);background:rgba(226,169,78,.12);color:var(--gold-bright)}
+.scroll-hint{
+  position:absolute;bottom:30px;left:clamp(20px,5vw,64px);z-index:4;
+  font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim);
+  display:flex;align-items:center;gap:12px;font-weight:500;
+}
+.scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--gold-bright),transparent);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding:40px clamp(20px,5vw,64px) 70px}
+  #three{opacity:.85}
+  .glass-fallback{right:50%;transform:translate(50%,-50%);top:35%}
+  .hero-copy p{max-width:100%}
+  .scroll-hint{display:none}
+}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;min-height:calc(100svh - 76px);display:grid;
-    grid-template-columns:1.05fr .95fr;align-items:center;
-    padding:20px clamp(20px,5vw,64px) 60px;gap:20px;
-  }
-  #three{position:absolute;inset:0;z-index:1}
-  #three canvas{display:block}
+section{padding:clamp(60px,8vw,120px) clamp(20px,5vw,64px);max-width:1400px;margin:0 auto}
+.sec-head{margin-bottom:clamp(30px,4vw,54px);max-width:760px}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(32px,4.4vw,58px);line-height:1.02;margin-bottom:16px}
+.sec-head h2 em{font-style:italic;color:var(--gold-bright)}
+.sec-head p{color:var(--cream-dim);font-size:15.5px;line-height:1.8;max-width:56ch;font-weight:400}
 
-  .glass-fallback{
-    position:absolute;right:8%;top:50%;transform:translateY(-50%);
-    z-index:2;display:none;
-  }
-  .gf-body{
-    width:190px;height:230px;
-    background:
-      radial-gradient(120% 90% at 30% 10%, rgba(255,255,255,.10), transparent 40%),
-      linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 38%,
-                      #6b0a1c 42%, #45060f 70%, #2a0309 100%);
-    border-radius:50% 50% 45% 45% / 12% 12% 75% 75%;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:inset -14px -24px 50px rgba(0,0,0,.55),
-               inset 8px 10px 24px rgba(255,255,255,.1),
-               0 30px 70px rgba(0,0,0,.65);
-    position:relative;overflow:hidden;
-    animation:spinGlass 12s ease-in-out infinite;
-  }
-  .gf-body::before{
-    content:"";position:absolute;left:8%;top:6%;width:22%;height:68%;
-    background:linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,0));
-    border-radius:999px;filter:blur(2px);
-  }
-  .gf-body::after{
-    content:"";position:absolute;left:0;right:0;top:42%;height:6px;
-    background:linear-gradient(90deg, transparent, rgba(255,215,180,.4), transparent);
-    filter:blur(1px);
-  }
-  .gf-stem{width:9px;height:82px;background:linear-gradient(180deg, rgba(107,10,28,.7), rgba(91,6,22,.9));margin:0 auto}
-  .gf-base{width:96px;height:13px;background:linear-gradient(180deg, rgba(91,6,22,.9), rgba(0,0,0,.95));border-radius:999px;margin:0 auto;box-shadow:0 12px 34px rgba(0,0,0,.7)}
-  @keyframes spinGlass{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,2.4vw,30px)}
+.feat{
+  position:relative;border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012)),rgba(24,14,9,.7);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:border-color .5s var(--smooth), transform .5s var(--smooth), box-shadow .5s var(--smooth);
+}
+.feat:hover{border-color:rgba(226,169,78,.6);transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.feat .photo{aspect-ratio:16/10;width:100%;display:block;overflow:hidden;background:linear-gradient(140deg,#3a2014,#130a06)}
+.feat .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--smooth)}
+.feat:hover .photo img{transform:scale(1.05)}
+.feat .body{padding:clamp(22px,2.6vw,34px)}
+.feat .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--gold-bright);opacity:.95;letter-spacing:.2em;margin-bottom:12px;font-weight:600}
+.feat h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(20px,2.1vw,28px);color:var(--gold-soft);margin-bottom:10px;line-height:1.2;overflow-wrap:break-word;word-break:break-word}
+.feat p{color:var(--cream-dim);font-size:14px;line-height:1.7;margin-bottom:18px}
+.feat .price{font-size:15px;color:var(--gold-bright);letter-spacing:.05em;border-top:1px solid var(--line);padding-top:14px;display:block;font-weight:600}
+.feat .price small{font-size:11px;color:var(--cream-dim);letter-spacing:.14em;margin-left:6px;text-transform:uppercase;font-weight:500}
+.photo.emo{display:grid;place-items:center;font-size:64px;background:radial-gradient(circle at 50% 40%,#8e2b20 0%,#3a2014 55%,#130a06 100%)}
 
-  .hero-copy{position:relative;z-index:3;padding-top:20px}
-  .eyebrow{
-    font-size:12px;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--gold-bright);margin-bottom:24px;display:inline-flex;align-items:center;gap:14px;
-    padding:8px 18px 8px 0;font-weight:600;
-    text-shadow:0 1px 8px rgba(0,0,0,.7);
-  }
-  .eyebrow::before{content:"";width:44px;height:1px;background:var(--gold-bright);opacity:.9;box-shadow:0 0 8px var(--gold)}
-  h1{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
-    font-size:clamp(46px,7.4vw,104px);line-height:.92;
-    letter-spacing:-.015em;margin-bottom:28px;
-    text-shadow:0 4px 24px rgba(0,0,0,.6);
-  }
-  h1 em{
-    font-style:italic;font-weight:500;
-    background:linear-gradient(100deg,var(--gold-bright),var(--gold) 45%,#b57a26 90%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    display:inline-block;
-    filter:drop-shadow(0 3px 16px rgba(226,169,78,.35));
-  }
-  .hero-copy p{
-    max-width:44ch;color:var(--cream-dim);
-    font-size:clamp(15px,1.2vw,17px);
-    line-height:1.8;margin-bottom:40px;font-weight:400;
-    text-shadow:0 1px 10px rgba(0,0,0,.5);
-  }
-  .cta{display:flex;gap:16px;flex-wrap:wrap}
-  .btn{
-    display:inline-block;text-decoration:none;font-size:12.5px;
-    letter-spacing:.2em;text-transform:uppercase;padding:17px 36px;
-    transition:all .4s var(--smooth);border:1px solid transparent;
-    font-weight:600;border-radius:999px;
-  }
-  .btn-primary{background:var(--wine-600);color:var(--cream);border-color:var(--wine-500)}
-  .btn-primary:hover{background:var(--wine-500);transform:translateY(-2px);box-shadow:0 18px 40px -18px #a8392b}
-  .btn-ghost{border-color:var(--gold);color:var(--gold-bright)}
-  .btn-ghost:hover{border-color:var(--gold-bright);background:rgba(226,169,78,.12);color:var(--gold-bright)}
-  .scroll-hint{
-    position:absolute;bottom:30px;left:clamp(20px,5vw,64px);z-index:4;
-    font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim);
-    display:flex;align-items:center;gap:12px;font-weight:500;
-  }
-  .scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--gold-bright),transparent);animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-  @media(max-width:900px){
-    .hero{grid-template-columns:1fr;min-height:auto;padding:40px clamp(20px,5vw,64px) 70px}
-    #three{opacity:.85}
-    .glass-fallback{right:50%;transform:translate(50%,-50%);top:35%}
-    .hero-copy p{max-width:100%}
-    .scroll-hint{display:none}
-  }
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.about div{background:#1a0f09;padding:clamp(24px,3vw,40px)}
+.about b{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,50px);color:var(--gold-bright);font-weight:700;line-height:1;margin-bottom:10px;text-shadow:0 0 24px rgba(226,169,78,.35)}
+.about span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);font-weight:500}
 
-  /* ---------- RULE ---------- */
-  .rule{display:flex;align-items:center;gap:18px;padding:0 clamp(20px,5vw,64px);margin:0 auto;max-width:1400px}
-  .rule i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
-  .rule b{color:var(--gold-bright);font-size:13px;letter-spacing:.3em;text-shadow:0 0 12px var(--gold)}
+.filters{
+  display:flex;flex-wrap:wrap;gap:9px;
+  margin-bottom:clamp(28px,4vw,46px);
+  padding:16px;margin-inline:-8px;
+  border-radius:22px;
+  background:rgba(19,10,6,.9);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);
+  box-shadow:0 10px 40px -20px rgba(0,0,0,.9);
+  position:relative;z-index:1;
+}
+.chip{
+  font:inherit;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cream-dim);background:transparent;border:1px solid var(--line);
+  padding:10px 18px;cursor:pointer;font-weight:600;
+  border-radius:999px;transition:all .35s var(--smooth);
+}
+.chip:hover{color:var(--gold-bright);border-color:var(--gold);transform:translateY(-1px)}
+.chip.on{background:var(--wine-600);color:var(--cream);border-color:var(--wine-500);box-shadow:0 6px 20px -8px var(--wine-500)}
 
-  /* ---------- SECTION ---------- */
-  section{padding:clamp(60px,8vw,120px) clamp(20px,5vw,64px);max-width:1400px;margin:0 auto}
-  .sec-head{margin-bottom:clamp(30px,4vw,54px);max-width:760px}
-  .sec-head h2{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
-    font-size:clamp(32px,4.4vw,58px);line-height:1.02;margin-bottom:16px;
-    text-shadow:0 3px 18px rgba(0,0,0,.5);
-  }
-  .sec-head h2 em{font-style:italic;color:var(--gold-bright)}
-  .sec-head p{color:var(--cream-dim);font-size:15.5px;line-height:1.8;max-width:56ch;font-weight:400}
+.search{margin-bottom:14px}
+.search input{
+  width:100%;font:inherit;font-size:16px;color:var(--cream);
+  padding:16px 22px 16px 52px;border-radius:999px;
+  border:1px solid var(--line);outline:none;
+  background:rgba(255,255,255,.04) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23f3cf8c' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='9' cy='9' r='6'/%3E%3Cpath d='m14 14 4 4'/%3E%3C/svg%3E") no-repeat 20px center;
+  transition:border-color .3s,background-color .3s;
+}
+.search input:focus{border-color:var(--gold);background-color:rgba(255,255,255,.07)}
+.search input::placeholder{color:var(--cream-soft)}
+.empty{color:var(--cream-dim);padding:30px 4px}
 
-  /* ---------- FEATURED ---------- */
-  .featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,2.4vw,30px)}
-  .feat{
-    position:relative;border:1px solid var(--line);
-    border-radius:var(--r-lg);overflow:hidden;
-    background:linear-gradient(160deg,rgba(106,32,24,.4) 0%,rgba(19,10,6,.95) 100%);
-    transition:border-color .5s var(--smooth), transform .5s var(--smooth), box-shadow .5s var(--smooth);
-  }
-  .feat:hover{border-color:rgba(226,169,78,.6);transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
-  .feat .photo{
-    aspect-ratio:16/10;width:100%;display:block;overflow:hidden;
-    background:linear-gradient(140deg,#3a2014,#130a06);
-  }
-  .feat .photo img{
-    width:100%;height:100%;object-fit:cover;display:block;
-    transition:transform 1.2s var(--smooth);
-  }
-  .feat:hover .photo img{transform:scale(1.05)}
-  .feat .body{padding:clamp(22px,2.6vw,34px)}
-  .feat .num{
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;
-    color:var(--gold-bright);opacity:.95;letter-spacing:.2em;margin-bottom:12px;
-    font-weight:600;
-  }
-  .feat h3{
-    font-family:'Cormorant Garamond',serif;font-weight:600;
-    font-size:clamp(20px,2.1vw,28px);color:var(--gold-soft);
-    margin-bottom:10px;line-height:1.2;
-    overflow-wrap:break-word;word-break:break-word;
-  }
-  .feat p{color:var(--cream-dim);font-size:14px;line-height:1.7;margin-bottom:18px}
-  .feat .price{
-    font-size:15px;color:var(--gold-bright);letter-spacing:.05em;
-    border-top:1px solid var(--line);padding-top:14px;display:block;
-    font-weight:600;
-  }
-  .feat .price small{font-size:11px;color:var(--cream-dim);letter-spacing:.14em;margin-left:6px;text-transform:uppercase;font-weight:500}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:clamp(20px,2.4vw,34px)}
+.card{
+  border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;
+  position:relative;min-width:0;
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012)),rgba(24,14,9,.7);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:border-color .5s var(--smooth), transform .5s var(--smooth), box-shadow .5s var(--smooth);
+  animation:rise .6s var(--smooth) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.card:hover{border-color:rgba(226,169,78,.6);transform:translateY(-4px);box-shadow:0 30px 60px -34px rgba(0,0,0,.9)}
+.card .photo{aspect-ratio:16/9;width:100%;overflow:hidden;background:linear-gradient(140deg,#3a2014,#130a06);position:relative}
+.card .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--smooth), filter .5s var(--smooth);filter:saturate(.98) brightness(.95)}
+.card:hover .photo img{transform:scale(1.06);filter:saturate(1.1) brightness(1.02)}
+.card .content{padding:clamp(20px,2.4vw,28px);min-width:0;overflow-wrap:break-word;word-break:break-word}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,26px);font-weight:700;color:var(--gold-soft);margin-bottom:16px;display:flex;align-items:center;gap:12px;overflow-wrap:break-word;word-break:break-word;min-width:0}
+.card h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);min-width:16px}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:12px;row-gap:2px;min-width:0}
+.card li .nm{color:var(--cream);font-weight:500;font-size:14.5px;line-height:1.5;min-width:0;overflow-wrap:break-word;word-break:break-word;hyphens:auto}
+.card li .pr{color:var(--gold-bright);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:14px;font-weight:600;justify-self:end;align-self:start}
+.card li .pr.muted{color:var(--cream-soft);opacity:.7}
+.card li .ds{grid-column:1/-1;color:var(--cream-soft);font-size:12.5px;line-height:1.5}
 
-  /* ---------- ABOUT ---------- */
-  .about{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:1px;background:var(--line);border:1px solid var(--line);
-    border-radius:var(--r-lg);overflow:hidden;
-  }
-  .about div{background:#1a0f09;padding:clamp(24px,3vw,40px)}
-  .about b{
-    display:block;font-family:'Cormorant Garamond',serif;
-    font-size:clamp(34px,4vw,50px);color:var(--gold-bright);
-    font-weight:700;line-height:1;margin-bottom:10px;
-    text-shadow:0 0 24px rgba(226,169,78,.35);
-  }
-  .about span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);font-weight:500}
+footer{
+  border-top:1px solid var(--line);margin-top:40px;
+  padding:clamp(40px,6vw,80px) clamp(20px,5vw,64px);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:36px;max-width:1400px;margin-inline:auto;
+}
+footer h4{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:16px;font-weight:700}
+footer p,footer a{color:var(--cream-dim);font-size:14.5px;line-height:1.9;text-decoration:none;display:block;transition:color .3s var(--smooth);font-weight:400}
+footer a:hover{color:var(--gold-bright)}
+.sig{text-align:center;padding:34px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cream-soft);font-size:15px;border-top:1px solid rgba(226,169,78,.12);font-weight:500}
 
-  /* ---------- MENU ---------- */
-  /* фильтр — обычный блок, НЕ sticky, чтобы не наезжать на карточки */
-  .filters{
-    display:flex;flex-wrap:wrap;gap:9px;
-    margin-bottom:clamp(28px,4vw,46px);
-    padding:16px;margin-inline:-8px;
-    border-radius:var(--r-md);
-    background:rgba(19,10,6,.9);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    border:1px solid var(--line);
-    box-shadow:0 10px 40px -20px rgba(0,0,0,.9);
-    position:relative;
-    z-index:1;
-  }
-  .chip{
-    font:inherit;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--cream-dim);background:transparent;border:1px solid var(--line);
-    padding:10px 18px;cursor:pointer;font-weight:600;
-    border-radius:999px;
-    transition:all .35s var(--smooth);
-  }
-  .chip:hover{color:var(--gold-bright);border-color:var(--gold);transform:translateY(-1px)}
-  .chip.on{background:var(--wine-600);color:var(--cream);border-color:var(--wine-500);box-shadow:0 6px 20px -8px var(--wine-500)}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:95;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--gold),var(--gold-bright))}
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;margin:10px 0 40px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee div{display:flex;gap:28px;width:max-content;animation:mq 38s linear infinite;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--cream-dim)}
+.marquee i{font-style:normal;color:var(--gold);font-size:.55em;align-self:center}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card::before,.feat::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;opacity:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,220,154,.15),transparent 60%);transition:opacity .4s}
+.card:hover::before,.feat:hover::before{opacity:1}
+.reveal{opacity:0;translate:0 26px;transition:opacity .8s var(--smooth),translate .8s var(--smooth)}
+.reveal.in{opacity:1;translate:0 0}
+.tomenu{
+  position:fixed;top:12px;left:clamp(14px,4vw,44px);z-index:72;
+  display:inline-flex;align-items:center;gap:9px;
+  padding:10px 16px;border-radius:999px;text-decoration:none;
+  color:var(--gold-bright);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(255,220,154,.35);
+  background:linear-gradient(135deg,rgba(168,57,43,.85),rgba(106,32,24,.85));
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px -12px #000;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .5s var(--smooth),transform .5s var(--smooth),visibility .5s,background .3s;
+}
+.tomenu b{font-weight:500;display:inline-block;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(-1px)}50%{transform:translateY(2px)}}
+.tomenu:hover{background:linear-gradient(135deg,#c24a38,#8e2b20)}
+nav.scrolled ~ .tomenu:not(.off){opacity:1;visibility:visible;transform:none}
+@media(max-width:420px){.tomenu{padding:8px 12px;font-size:10.5px;gap:7px;top:10px}.tomenu b{display:none}}
 
-  .menu-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-    gap:clamp(20px,2.4vw,34px);
-  }
-  .card{
-    border:1px solid var(--line);
-    background:linear-gradient(160deg,#2a170e 0%,#130a06 100%);
-    border-radius:var(--r-lg);overflow:hidden;
-    position:relative;
-    min-width:0;
-    transition:border-color .5s var(--smooth), transform .5s var(--smooth), box-shadow .5s var(--smooth);
-    animation:rise .6s var(--smooth) both;
-  }
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  .card:hover{
-    border-color:rgba(226,169,78,.6);
-    transform:translateY(-4px);
-    box-shadow:0 30px 60px -34px rgba(0,0,0,.9);
-  }
-  .card .photo{
-    aspect-ratio:16/9;width:100%;overflow:hidden;
-    background:linear-gradient(140deg,#3a2014,#130a06);
-    position:relative;
-  }
-  .card .photo img{
-    width:100%;height:100%;object-fit:cover;display:block;
-    transition:transform 1.2s var(--smooth), filter .5s var(--smooth);
-    filter:saturate(.98) brightness(.95);
-  }
-  .card:hover .photo img{transform:scale(1.06);filter:saturate(1.1) brightness(1.02)}
+.lamp{position:absolute;top:0;z-index:2;pointer-events:none;display:flex;flex-direction:column;align-items:center;transform-origin:50% 0;animation:sway 8s ease-in-out infinite}
+.lamp i{display:block;width:1px;height:var(--cord);background:rgba(255,220,154,.4)}
+.lamp b{
+  display:block;width:var(--w);height:calc(var(--w)*.64);
+  border-radius:50% 50% 10% 10%/95% 95% 12% 12%;
+  background:repeating-linear-gradient(135deg,rgba(60,30,8,.35) 0 2px,transparent 2px 6px),
+    repeating-linear-gradient(45deg,rgba(60,30,8,.35) 0 2px,transparent 2px 6px),
+    linear-gradient(180deg,#7d5228,#b87d3c 60%,#f0bb6c);
+  box-shadow:0 22px 70px 20px rgba(255,170,70,.26),inset 0 -12px 20px rgba(255,222,150,.6);
+}
+.lamp::after{content:"";width:calc(var(--w)*1.5);height:calc(var(--w)*1.3);margin-top:-6px;background:radial-gradient(ellipse at 50% 0,rgba(255,196,110,.34),transparent 70%)}
+.l1{left:47%;--w:96px;--cord:56px}
+.l2{left:56%;--w:68px;--cord:128px;animation-delay:-3s}
+@keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
+@media(max-width:900px){.l1{left:auto;right:9%;--w:70px;--cord:40px}.l2{display:none}}
 
-  .card .content{
-    padding:clamp(20px,2.4vw,28px);
-    min-width:0;
-    overflow-wrap:break-word;
-    word-break:break-word;
-  }
-  .card h3{
-    font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2vw,26px);
-    font-weight:700;color:var(--gold-soft);margin-bottom:16px;
-    display:flex;align-items:center;gap:12px;
-    overflow-wrap:break-word;word-break:break-word;
-    min-width:0;
-  }
-  .card h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);min-width:16px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);align-items:start}
+.gallery figure{position:relative;margin:0;border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:#1a0f09}
+.gallery figure:nth-child(2){margin-top:clamp(20px,5vw,64px)}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) brightness(.93);transition:transform 1.4s var(--smooth),filter .6s var(--smooth)}
+.gallery figure:hover img{transform:scale(1.05);filter:none}
+.gallery figure::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(19,10,6,.88)),radial-gradient(circle at 50% 0,rgba(255,170,70,.16),transparent 60%)}
+.gallery figcaption{position:absolute;left:20px;bottom:18px;z-index:2;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(21px,2vw,27px);color:var(--gold-bright)}
+@media(max-width:760px){
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(-1 * clamp(20px,5vw,64px));padding-inline:clamp(20px,5vw,64px);scrollbar-width:none}
+  .gallery figure{flex:0 0 78%;scroll-snap-align:center;margin-top:0!important}
+}
 
-  /* строки меню: grid — nm слева (перенос), pr справа, ничего не лезет */
-  .card ul{
-    list-style:none;
-    display:flex;flex-direction:column;gap:12px;
-    min-width:0;
-  }
-  .card li{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    align-items:baseline;
-    column-gap:12px;row-gap:2px;
-    min-width:0;
-  }
-  .card li .nm{
-    color:var(--cream);font-weight:500;
-    font-size:14.5px;line-height:1.5;
-    min-width:0;
-    overflow-wrap:break-word;
-    word-break:break-word;
-    hyphens:auto;
-  }
-  .card li .dot{display:none}
-  .card li .pr{
-    color:var(--gold-bright);
-    font-variant-numeric:tabular-nums;
-    white-space:nowrap;
-    font-size:14px;font-weight:600;
-    justify-self:end;
-    align-self:start;
-  }
-  .card li .pr.muted{color:var(--cream-soft);opacity:.7}
+html.js:not(.done){overflow:hidden}
+.done .intro{display:none}
+.intro{position:fixed;inset:0;z-index:300;display:grid;place-items:center;cursor:pointer;overflow:hidden}
+.intro .door{
+  position:absolute;top:0;bottom:0;width:50.3%;
+  transition:transform 1.25s cubic-bezier(.77,0,.18,1);
+  background:#0e0704 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%23e2a94e' stroke-opacity='.07'/%3E%3C/svg%3E");
+}
+.intro .door.l{left:0;border-right:1px solid rgba(226,169,78,.35)}
+.intro .door.r{right:0;border-left:1px solid rgba(226,169,78,.35)}
+.intro.open .door.l{transform:translateX(-101%)}
+.intro.open .door.r{transform:translateX(101%)}
+.intro-glow{position:absolute;width:80vmin;height:80vmin;border-radius:50%;opacity:0;transform:scale(.55);background:radial-gradient(circle,rgba(255,170,70,.32),transparent 65%);transition:opacity 1.4s ease,transform 2s var(--smooth)}
+.intro.go .intro-glow{opacity:1;transform:scale(1)}
+.intro.open .intro-glow{opacity:0;transition-duration:.6s}
+.intro-core{position:relative;z-index:2;text-align:center;transition:opacity .55s ease,transform 1.1s var(--smooth)}
+.intro.open .intro-core{opacity:0;transform:scale(1.18)}
+.intro svg{width:min(66vw,340px);overflow:visible;filter:drop-shadow(0 0 12px rgba(255,170,70,.6))}
+.intro svg .d{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.intro.go svg .d{animation:draw 1.5s var(--smooth) forwards}
+.intro.go svg .d2{animation-delay:.3s}.intro.go svg .d3{animation-delay:.5s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.intro svg text{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:86px;fill:var(--gold-bright);stroke:#0e0704;stroke-width:10px;paint-order:stroke fill;stroke-linejoin:round;opacity:0}
+.intro.go svg text{animation:fadeUp .9s var(--smooth) .9s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.intro-brand{margin-top:14px;font-family:'Cormorant Garamond',serif;font-weight:700;text-transform:uppercase;font-size:clamp(20px,5.2vw,30px);letter-spacing:.2em;color:var(--cream);white-space:nowrap}
+.intro-brand span{display:inline-block;opacity:0;transform:translateY(14px)}
+.intro.go .intro-brand span{animation:fadeUp .7s var(--smooth) calc(1.1s + var(--i) * .05s) forwards}
+.intro-sub{margin-top:12px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-soft);opacity:0;transition:opacity 1s ease 2s}
+.intro.go .intro-sub{opacity:.85}
+.intro-skip{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-soft);opacity:.45}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);margin-top:40px;
-    padding:clamp(40px,6vw,80px) clamp(20px,5vw,64px);
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:36px;max-width:1400px;margin-inline:auto;
-  }
-  footer h4{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:16px;font-weight:700}
-  footer p,footer a{color:var(--cream-dim);font-size:14.5px;line-height:1.9;text-decoration:none;display:block;transition:color .3s var(--smooth);font-weight:400}
-  footer a:hover{color:var(--gold-bright)}
-  .sig{
-    text-align:center;padding:34px;
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    color:var(--cream-soft);font-size:15px;
-    border-top:1px solid rgba(226,169,78,.12);
-    font-weight:500;
-  }
+.js .hero-copy>*{opacity:0;transform:translateY(28px);transition:opacity 1s var(--smooth),transform 1s var(--smooth)}
+.js.ready .hero-copy>*{opacity:1;transform:none}
+.js.ready .hero-copy>*:nth-child(2){transition-delay:.12s}
+.js.ready .hero-copy>*:nth-child(3){transition-delay:.26s}
+.js.ready .hero-copy>*:nth-child(4){transition-delay:.4s}
+.js .lamp{translate:0 -140%;opacity:0;transition:translate 1.8s var(--smooth) .35s,opacity 1.2s ease .35s}
+.js.ready .lamp{translate:0 0;opacity:1}
+.js #three,.js .glass-fallback{opacity:0;transition:opacity 1.8s ease .3s}
+.js.ready #three,.js.ready .glass-fallback{opacity:1}
+@media(max-width:900px){.js.ready #three{opacity:.85}}
+.js:not(.ready) nav,.js:not(.ready) .scroll-hint{opacity:0}
+.js.ready nav{animation:navIn .9s var(--smooth) both}
+@keyframes navIn{from{opacity:0;translate:0 -100%}}
+:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 
-  /* ===== 2026 look ===== */
-  body::before,body::after{display:none!important}
-  body{background:radial-gradient(900px 420px at 55% -8%,rgba(255,170,70,.14),transparent 70%),radial-gradient(900px 600px at 85% -10%,rgba(168,57,43,.5),transparent 60%),
-    radial-gradient(700px 500px at 0% 30%,rgba(106,32,24,.45),transparent 60%),#110a06;line-height:1.55}
-  h1,h2,h3{text-wrap:balance}
-  p{text-wrap:pretty}
-  h1,.sec-head h2,.brand,.eyebrow,.hero-copy p{text-shadow:none}
-  .eyebrow{letter-spacing:.22em;font-size:11.5px}
-  .navlinks a,.btn,.chip{letter-spacing:.08em}
-  h1{font-size:clamp(52px,8.6vw,124px);line-height:.88;letter-spacing:-.03em}
-  .btn-primary{background:linear-gradient(135deg,#a8392b,#6a2018);border-color:rgba(255,220,154,.25)}
-  .lnk{color:var(--gold-bright);text-underline-offset:4px}
-  .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:95;transform:scaleX(0);transform-origin:0 50%;
-    background:linear-gradient(90deg,var(--gold),var(--gold-bright))}
-  .marquee{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;margin:10px 0 40px;
-    mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-  .marquee div{display:flex;gap:28px;width:max-content;animation:mq 38s linear infinite;
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--cream-dim)}
-  .marquee i{font-style:normal;color:var(--gold);font-size:.55em;align-self:center}
-  @keyframes mq{to{transform:translateX(-50%)}}
-  .card,.feat{--mx:50%;--my:0%;border-radius:28px;border-color:rgba(255,255,255,.09);
-    background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012)),rgba(24,14,9,.7);
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-  .card::before,.feat::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;opacity:0;
-    background:radial-gradient(420px circle at var(--mx) var(--my),rgba(255,220,154,.15),transparent 60%);transition:opacity .4s}
-  .card:hover::before,.feat:hover::before{opacity:1}
-  .reveal{opacity:0;translate:0 26px;transition:opacity .8s var(--smooth),translate .8s var(--smooth)}
-  .reveal.in{opacity:1;translate:0 0}
-  .feat.reveal{transition:opacity .8s var(--smooth),translate .8s var(--smooth),transform .5s var(--smooth),border-color .5s,box-shadow .5s}
-  .search{margin-bottom:14px}
-  .search input{width:100%;font:inherit;font-size:16px;color:var(--cream);padding:16px 22px 16px 52px;border-radius:999px;
-    border:1px solid var(--line);outline:none;background:rgba(255,255,255,.04) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23f3cf8c' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='9' cy='9' r='6'/%3E%3Cpath d='m14 14 4 4'/%3E%3C/svg%3E") no-repeat 20px center;
-    transition:border-color .3s,background-color .3s}
-  .search input:focus{border-color:var(--gold);background-color:rgba(255,255,255,.07)}
-  .search input::placeholder{color:var(--cream-soft)}
-  .empty{color:var(--cream-dim);padding:30px 4px}
-  .tomenu{position:fixed;top:12px;left:clamp(14px,4vw,44px);z-index:72;display:inline-flex;align-items:center;gap:9px;
-    padding:10px 16px;border-radius:999px;text-decoration:none;color:var(--gold-bright);font-size:11.5px;font-weight:600;
-    letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,220,154,.35);
-    background:linear-gradient(135deg,rgba(168,57,43,.85),rgba(106,32,24,.85));
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px #000;
-    opacity:0;visibility:hidden;transform:translateY(-8px);
-    transition:opacity .5s var(--smooth),transform .5s var(--smooth),visibility .5s,background .3s}
-  .tomenu b{font-weight:500;display:inline-block;animation:nudge 1.8s ease-in-out infinite}
-  @keyframes nudge{0%,100%{transform:translateY(-1px)}50%{transform:translateY(2px)}}
-  .tomenu:hover{background:linear-gradient(135deg,#c24a38,#8e2b20)}
-  nav.scrolled ~ .tomenu:not(.off){opacity:1;visibility:visible;transform:none}
-  @media(max-width:420px){.tomenu{padding:8px 12px;font-size:10.5px;gap:7px;top:10px}.tomenu b{display:none}}
-  /* ===== атмосфера закладу ===== */
-  .lamp{position:absolute;top:0;z-index:2;pointer-events:none;display:flex;flex-direction:column;align-items:center;
-    transform-origin:50% 0;animation:sway 8s ease-in-out infinite}
-  .lamp i{display:block;width:1px;height:var(--cord);background:rgba(255,220,154,.4)}
-  .lamp b{display:block;width:var(--w);height:calc(var(--w)*.64);border-radius:50% 50% 10% 10%/95% 95% 12% 12%;
-    background:repeating-linear-gradient(135deg,rgba(60,30,8,.35) 0 2px,transparent 2px 6px),
-      repeating-linear-gradient(45deg,rgba(60,30,8,.35) 0 2px,transparent 2px 6px),
-      linear-gradient(180deg,#7d5228,#b87d3c 60%,#f0bb6c);
-    box-shadow:0 22px 70px 20px rgba(255,170,70,.26),inset 0 -12px 20px rgba(255,222,150,.6)}
-  .lamp::after{content:"";width:calc(var(--w)*1.5);height:calc(var(--w)*1.3);margin-top:-6px;
-    background:radial-gradient(ellipse at 50% 0,rgba(255,196,110,.34),transparent 70%)}
-  .l1{left:47%;--w:96px;--cord:56px}
-  .l2{left:56%;--w:68px;--cord:128px;animation-delay:-3s}
-  @keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
-  @media(max-width:900px){.l1{left:auto;right:9%;--w:70px;--cord:40px}.l2{display:none}}
-  .about div{background:#1a0f09 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 3 25 14 14 25 3 14Z' fill='none' stroke='%23f3cf8c' stroke-opacity='.07'/%3E%3C/svg%3E")}
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);align-items:start}
-  .gallery figure{position:relative;margin:0;border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:#1a0f09}
-  .gallery figure:nth-child(2){margin-top:clamp(20px,5vw,64px)}
-  .gallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) brightness(.93);
-    transition:transform 1.4s var(--smooth),filter .6s var(--smooth)}
-  .gallery figure:hover img{transform:scale(1.05);filter:none}
-  .gallery figure::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,transparent 55%,rgba(19,10,6,.88)),radial-gradient(circle at 50% 0,rgba(255,170,70,.16),transparent 60%)}
-  .gallery figcaption{position:absolute;left:20px;bottom:18px;z-index:2;font-family:'Cormorant Garamond',serif;
-    font-style:italic;font-size:clamp(21px,2vw,27px);color:var(--gold-bright)}
-  @media(max-width:760px){
-    .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;
-      margin-inline:calc(-1 * clamp(20px,5vw,64px));padding-inline:clamp(20px,5vw,64px);scrollbar-width:none}
-    .gallery figure{flex:0 0 78%;scroll-snap-align:center;margin-top:0!important}
-  }
-  /* ===== вхідний ефект ===== */
-  html.js:not(.done){overflow:hidden}
-  .done .intro{display:none}
-  .intro{position:fixed;inset:0;z-index:300;display:grid;place-items:center;cursor:pointer;overflow:hidden}
-  .intro .door{position:absolute;top:0;bottom:0;width:50.3%;transition:transform 1.25s cubic-bezier(.77,0,.18,1);
-    background:#0e0704 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cpath d='M18 3 33 18 18 33 3 18Z' fill='none' stroke='%23e2a94e' stroke-opacity='.07'/%3E%3C/svg%3E")}
-  .intro .door.l{left:0;border-right:1px solid rgba(226,169,78,.35)}
-  .intro .door.r{right:0;border-left:1px solid rgba(226,169,78,.35)}
-  .intro.open .door.l{transform:translateX(-101%)}
-  .intro.open .door.r{transform:translateX(101%)}
-  .intro-glow{position:absolute;width:80vmin;height:80vmin;border-radius:50%;opacity:0;transform:scale(.55);
-    background:radial-gradient(circle,rgba(255,170,70,.32),transparent 65%);transition:opacity 1.4s ease,transform 2s var(--smooth)}
-  .intro.go .intro-glow{opacity:1;transform:scale(1)}
-  .intro.open .intro-glow{opacity:0;transition-duration:.6s}
-  .intro-core{position:relative;z-index:2;text-align:center;transition:opacity .55s ease,transform 1.1s var(--smooth)}
-  .intro.open .intro-core{opacity:0;transform:scale(1.18)}
-  .intro svg{width:min(66vw,340px);overflow:visible;filter:drop-shadow(0 0 12px rgba(255,170,70,.6))}
-  .intro svg .d{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
-  .intro.go svg .d{animation:draw 1.5s var(--smooth) forwards}
-  .intro.go svg .d2{animation-delay:.3s}.intro.go svg .d3{animation-delay:.5s}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  .intro svg text{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:86px;fill:var(--gold-bright);
-    stroke:#0e0704;stroke-width:10px;paint-order:stroke fill;stroke-linejoin:round;opacity:0}
-  .intro.go svg text{animation:fadeUp .9s var(--smooth) .9s forwards}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .intro-brand{margin-top:14px;font-family:'Cormorant Garamond',serif;font-weight:700;text-transform:uppercase;
-    font-size:clamp(20px,5.2vw,30px);letter-spacing:.2em;color:var(--cream);white-space:nowrap}
-  .intro-brand span{display:inline-block;opacity:0;transform:translateY(14px)}
-  .intro.go .intro-brand span{animation:fadeUp .7s var(--smooth) calc(1.1s + var(--i) * .05s) forwards}
-  .intro-sub{margin-top:12px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-soft);
-    opacity:0;transition:opacity 1s ease 2s}
-  .intro.go .intro-sub{opacity:.85}
-  .intro-skip{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--cream-soft);opacity:.45}
-  /* вхід елементів першого екрана після відкриття воріт */
-  .js .hero-copy>*{opacity:0;transform:translateY(28px);transition:opacity 1s var(--smooth),transform 1s var(--smooth)}
-  .js.ready .hero-copy>*{opacity:1;transform:none}
-  .js.ready .hero-copy>*:nth-child(2){transition-delay:.12s}
-  .js.ready .hero-copy>*:nth-child(3){transition-delay:.26s}
-  .js.ready .hero-copy>*:nth-child(4){transition-delay:.4s}
-  .js .lamp{translate:0 -140%;opacity:0;transition:translate 1.8s var(--smooth) .35s,opacity 1.2s ease .35s}
-  .js.ready .lamp{translate:0 0;opacity:1}
-  .js #three,.js .glass-fallback{opacity:0;transition:opacity 1.8s ease .3s}
-  .js.ready #three,.js.ready .glass-fallback{opacity:1}
-  @media(max-width:900px){.js.ready #three{opacity:.85}}
-  .js:not(.ready) nav,.js:not(.ready) .scroll-hint{opacity:0}
-  .js.ready nav{animation:navIn .9s var(--smooth) both}
-  @keyframes navIn{from{opacity:0;translate:0 -100%}}
-  :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
-  .ornament{height:18px;max-width:1400px;margin:0 auto;opacity:.85;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18'%3E%3Cpath d='M0 .5h36M0 17.5h36' stroke='%23e2a94e' stroke-opacity='.6'/%3E%3Cpath d='M18 2 28 9 18 16 8 9Z' fill='%23a8392b' stroke='%23e2a94e'/%3E%3Cpath d='M18 6 22 9 18 12 14 9Z' fill='%23e2a94e'/%3E%3Cpath d='M0 9 4 6 8 9 4 12ZM28 9 32 6 36 9 32 12Z' fill='%232a3350' stroke='%23e2a94e' stroke-opacity='.6'/%3E%3C/svg%3E") repeat-x center}
-  .photo.emo{display:grid;place-items:center;font-size:64px;
-    background:radial-gradient(circle at 50% 40%,#8e2b20 0%,#3a2014 55%,#130a06 100%)}
-  .card li .ds{grid-column:1/-1;color:var(--cream-soft);font-size:12.5px;line-height:1.5}
-  .callfab{display:none}
-  @media(max-width:860px){
-    .navlinks a[href="#menu"],.navlinks a[href="#kitchen"]{display:inline-block!important}
-    .callfab{display:block;position:fixed;right:16px;bottom:16px;z-index:80;background:var(--wine-600);
-      color:var(--cream);border:1px solid var(--gold);border-radius:999px;padding:13px 20px;
-      font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;
-      box-shadow:0 12px 30px -10px #000}
-    body::before{animation:none}
-  }
-  @media(max-width:700px){
-    .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
-    .chip{white-space:nowrap;flex:none}
-    .menu-grid{grid-template-columns:1fr}
-  }
-  @media (prefers-reduced-motion: reduce){
-    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
-  }
+.callfab{display:none}
+@media(max-width:860px){
+  .callfab{display:block;position:fixed;right:16px;bottom:16px;z-index:80;background:var(--wine-600);color:var(--cream);border:1px solid var(--gold);border-radius:999px;padding:13px 20px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;box-shadow:0 12px 30px -10px #000}
+}
+@media(max-width:700px){
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+  .chip{white-space:nowrap;flex:none}
+  .menu-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}}
 </style>
 </head>
 <body>
@@ -598,9 +412,7 @@
 <header class="hero">
   <div id="three"></div>
   <div class="glass-fallback" id="glassFallback">
-    <div class="gf-body"></div>
-    <div class="gf-stem"></div>
-    <div class="gf-base"></div>
+    <div class="gf-body"></div><div class="gf-stem"></div><div class="gf-base"></div>
   </div>
   <div class="lamp l1" aria-hidden="true"><i></i><b></b></div>
   <div class="lamp l2" aria-hidden="true"><i></i><b></b></div>
@@ -616,7 +428,12 @@
   <div class="scroll-hint"><i></i> Гортай</div>
 </header>
 
-<div class="marquee" aria-hidden="true"><div><span>Хінкалі</span><i>◆</i><span>Хачапурі</span><i>◆</i><span>Шашлик</span><i>◆</i><span>Чача</span><i>◆</i><span>Кіндзмараулі</span><i>◆</i><span>Харчо</span><i>◆</i><span>Лаваш</span><i>◆</i><span>Пхалі</span><i>◆</i><span>Хінкалі</span><i>◆</i><span>Хачапурі</span><i>◆</i><span>Шашлик</span><i>◆</i><span>Чача</span><i>◆</i><span>Кіндзмараулі</span><i>◆</i><span>Харчо</span><i>◆</i><span>Лаваш</span><i>◆</i><span>Пхалі</span><i>◆</i></div></div>
+<div class="marquee" aria-hidden="true"><div>
+  <span>Хінкалі</span><i>◆</i><span>Хачапурі</span><i>◆</i><span>Шашлик</span><i>◆</i><span>Чача</span><i>◆</i>
+  <span>Кіндзмараулі</span><i>◆</i><span>Харчо</span><i>◆</i><span>Лаваш</span><i>◆</i><span>Пхалі</span><i>◆</i>
+  <span>Хінкалі</span><i>◆</i><span>Хачапурі</span><i>◆</i><span>Шашлик</span><i>◆</i><span>Чача</span><i>◆</i>
+  <span>Кіндзмараулі</span><i>◆</i><span>Харчо</span><i>◆</i><span>Лаваш</span><i>◆</i><span>Пхалі</span><i>◆</i>
+</div></div>
 
 <section id="about" style="padding-top:0">
   <div class="about">
@@ -633,37 +450,20 @@
     <p>Три речі, з яких починають і якими закінчують. Решта — у меню нижче.</p>
   </div>
   <div class="featured-grid">
-    <div class="feat">
-      <div class="photo"><img data-cat="chacha" alt="Чача" loading="lazy"></div>
-      <div class="body">
-        <div class="num">I</div>
-        <h3>Чача Дуруджи Велі Кахетинська 50%</h3>
-        <p>Виноградна, м'яка. Те, чим починають і чим закінчують. Приносять у глечику, наливають до краю.</p>
-        <span class="price">200 ₴ <small>/ 100 г</small></span>
-      </div>
-    </div>
-    <div class="feat">
-      <div class="photo"><img data-cat="georgia" alt="Кіндзмараулі" loading="lazy"></div>
-      <div class="body">
-        <div class="num">II</div>
-        <h3>Кіндзмараулі</h3>
-        <p>Напівсолодке червоне з Кахетії. П'ють охолодженим, з м'ясом і хінкалі. Глечик — 0,75 л.</p>
-        <span class="price">127 ₴ <small>/ 100 г</small></span>
-      </div>
-    </div>
-    <div class="feat">
-      <div class="photo"><img data-cat="mulled" alt="Глінтвейн" loading="lazy"></div>
-      <div class="body">
-        <div class="num">III</div>
-        <h3>Грузинський глінтвейн</h3>
-        <p>Гаряче вино з прянощами й медом. Подають зимою, завжди з пахощами кориці на весь зал.</p>
-        <span class="price">160 ₴ <small>/ порція</small></span>
-      </div>
-    </div>
+    <div class="feat"><div class="photo"><img data-cat="chacha" alt="Чача" loading="lazy"></div><div class="body">
+      <div class="num">I</div><h3>Чача Дуруджи Велі Кахетинська 50%</h3>
+      <p>Виноградна, м'яка. Те, чим починають і чим закінчують. Приносять у глечику, наливають до краю.</p>
+      <span class="price">200 ₴ <small>/ 100 г</small></span></div></div>
+    <div class="feat"><div class="photo"><img data-cat="georgia" alt="Кіндзмараулі" loading="lazy"></div><div class="body">
+      <div class="num">II</div><h3>Кіндзмараулі</h3>
+      <p>Напівсолодке червоне з Кахетії. П'ють охолодженим, з м'ясом і хінкалі. Глечик — 0,75 л.</p>
+      <span class="price">127 ₴ <small>/ 100 г</small></span></div></div>
+    <div class="feat"><div class="photo"><img data-cat="mulled" alt="Глінтвейн" loading="lazy"></div><div class="body">
+      <div class="num">III</div><h3>Грузинський глінтвейн</h3>
+      <p>Гаряче вино з прянощами й медом. Подають зимою, завжди з пахощами кориці на весь зал.</p>
+      <span class="price">160 ₴ <small>/ порція</small></span></div></div>
   </div>
 </section>
-
-<div class="ornament" aria-hidden="true"></div>
 
 <section id="kitchen">
   <div class="sec-head">
@@ -686,6 +486,17 @@
   </div>
 </section>
 
+<section id="menu">
+  <div class="sec-head">
+    <h2>Меню <em>двору</em></h2>
+    <p>Кухня відкрита з 11:00 до пізнього вечора. Ціни — за порцію, якщо не вказано інше.</p>
+  </div>
+  <div class="search">
+    <input id="q" type="search" placeholder="Пошук по меню — страва, напій, інгредієнт..." aria-label="Пошук по меню">
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="menu-grid" id="grid"></div>
+</section>
 
 <section id="interior">
   <div class="sec-head">
@@ -693,25 +504,14 @@
     <p>Плетені лампи, живе дерево, килими на стінах і тепле світло над столом. Заходьте — місце знайдеться.</p>
   </div>
   <div class="gallery">
-    <figure>
-      <img src="./photo-1.jpg" alt="Зал із підсвіченим знаком" loading="lazy" width="446" height="600">
-      <figcaption>Світло над столом</figcaption>
-    </figure>
-    <figure>
-      <img src="./photo-2.jpg" alt="Плетені лампи над столом" loading="lazy" width="446" height="600">
-      <figcaption>Плетені лампи</figcaption>
-    </figure>
-    <figure>
-      <img src="./photo-3.jpg" alt="Стіл з вином і стравами" loading="lazy" width="446" height="600">
-      <figcaption>Вечірній двір</figcaption>
-    </figure>
+    <figure><img src="./photo-1.jpg" alt="Зал" loading="lazy"><figcaption>Світло над столом</figcaption></figure>
+    <figure><img src="./photo-2.jpg" alt="Лампи" loading="lazy"><figcaption>Плетені лампи</figcaption></figure>
+    <figure><img src="./photo-3.jpg" alt="Стіл" loading="lazy"><figcaption>Вечірній двір</figcaption></figure>
   </div>
 </section>
 
-<div class="ornament" aria-hidden="true"></div>
-
 <footer id="contact">
-  <div><h4>Адреса</h4><p>вул. Європейська, 34б<br>Умань, Черкаська область</p><a href="https://www.google.com/maps/search/?api=1&query=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%84%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0%2034%D0%B1%20%D0%A3%D0%BC%D0%B0%D0%BD%D1%8C" target="_blank" rel="noopener">Відкрити на мапі →</a></div>
+  <div><h4>Адреса</h4><p>вул. Європейська, 34б<br>Умань, Черкаська область</p></div>
   <div><h4>Години</h4><p>Пн–Чт · 11:00 — 23:00<br>Пт–Сб · 11:00 — 01:00<br>Нд · 12:00 — 22:00</p></div>
   <div><h4>Зв'язок</h4><a href="tel:+380441234567">+38 (044) 123-45-67</a><a href="mailto:hello@kavkaz.dvor">hello@kavkaz.dvor</a></div>
   <div><h4>Соцмережі</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Telegram</a></div>
@@ -727,15 +527,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var hasTHREE = typeof THREE !== 'undefined';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ok = false;
-  try {
-    var c = document.createElement('canvas');
-    ok = !!(c.getContext('webgl') || c.getContext('experimental-webgl'));
-  } catch(e){ ok = false; }
-  if (!hasTHREE || !ok || reduce){
-    if (fb) fb.style.display = 'block';
-    host.style.display = 'none';
-    return;
-  }
+  try { var c = document.createElement('canvas'); ok = !!(c.getContext('webgl') || c.getContext('experimental-webgl')); } catch(e){ ok = false; }
+  if (!hasTHREE || !ok || reduce){ if (fb) fb.style.display = 'block'; host.style.display = 'none'; return; }
   try { initScene(); } catch(e){ host.style.display='none'; if (fb) fb.style.display='block'; }
 
   function initScene(){
@@ -748,62 +541,33 @@ document.addEventListener('DOMContentLoaded', function(){
     renderer.toneMappingExposure = 1.15;
     renderer.outputEncoding = THREE.sRGBEncoding;
     host.appendChild(renderer.domElement);
-
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(34, W()/H(), 0.1, 100);
     camera.position.set(0, 1.15, 6.6);
     var rig = new THREE.Group();
     scene.add(rig);
 
-    /* --- студійне оточення: софтбокси дають гострі відблиски на склі --- */
-    var ec = document.createElement('canvas');
-    ec.width = 1024; ec.height = 512;
+    var ec = document.createElement('canvas'); ec.width = 1024; ec.height = 512;
     var ectx = ec.getContext('2d');
     var g = ectx.createLinearGradient(0, 0, 0, 512);
     g.addColorStop(0, '#1a0308'); g.addColorStop(0.5, '#3a2014'); g.addColorStop(1, '#0d0204');
     ectx.fillStyle = g; ectx.fillRect(0, 0, 1024, 512);
-    function spot(x, y, r, col){
-      var rg = ectx.createRadialGradient(x, y, 4, x, y, r);
-      rg.addColorStop(0, col); rg.addColorStop(1, 'rgba(0,0,0,0)');
-      ectx.fillStyle = rg; ectx.fillRect(x - r, y - r, r * 2, r * 2);
-    }
-    spot(240, 200, 240, 'rgba(255,200,140,.8)');
-    spot(760, 300, 220, 'rgba(180,40,60,.7)');
-    function box(x, y, w, h, c){ ectx.fillStyle = c; ectx.fillRect(x, y, w, h); }
-    box(150, 70, 56, 330, '#fff5e6');
-    box(330, 110, 22, 260, '#ffd9a0');
-    box(640, 60, 90, 340, '#ffe9c8');
-    box(870, 120, 28, 220, '#ff8a5a');
-    box(0, 0, 1024, 30, '#ffcf8a');
-    var envTex = new THREE.CanvasTexture(ec);
-    envTex.encoding = THREE.sRGBEncoding;
-    try {
-      var pm = new THREE.PMREMGenerator(renderer);
-      scene.environment = pm.fromEquirectangular(envTex).texture;
-      pm.dispose();
-    } catch(e){
-      envTex.mapping = THREE.EquirectangularReflectionMapping;
-      scene.environment = envTex;
-    }
+    function spot(x,y,r,col){ var rg = ectx.createRadialGradient(x,y,4,x,y,r); rg.addColorStop(0,col); rg.addColorStop(1,'rgba(0,0,0,0)'); ectx.fillStyle=rg; ectx.fillRect(x-r,y-r,r*2,r*2); }
+    spot(240,200,240,'rgba(255,200,140,.8)'); spot(760,300,220,'rgba(180,40,60,.7)');
+    function box(x,y,w,h,c){ ectx.fillStyle=c; ectx.fillRect(x,y,w,h); }
+    box(150,70,56,330,'#fff5e6'); box(330,110,22,260,'#ffd9a0');
+    box(640,60,90,340,'#ffe9c8'); box(870,120,28,220,'#ff8a5a'); box(0,0,1024,30,'#ffcf8a');
+    var envTex = new THREE.CanvasTexture(ec); envTex.encoding = THREE.sRGBEncoding;
+    try { var pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromEquirectangular(envTex).texture; pm.dispose(); }
+    catch(e){ envTex.mapping = THREE.EquirectangularReflectionMapping; scene.environment = envTex; }
 
-    var key = new THREE.PointLight(0xffb070, 1.7, 34);
-    scene.add(key);
-    var rim = new THREE.PointLight(0xc0503a, 1.5, 28);
-    rim.position.set(-3.6, 1.8, -2.8);
-    scene.add(rim);
-    var under = new THREE.PointLight(0xff7a45, 1.1, 12);
-    under.position.set(0, -1.2, 2);
-    scene.add(under);
-    var fill = new THREE.DirectionalLight(0xf4ece0, 0.5);
-    fill.position.set(-2, 3, 4);
-    scene.add(fill);
+    var key = new THREE.PointLight(0xffb070, 1.7, 34); scene.add(key);
+    var rim = new THREE.PointLight(0xc0503a, 1.5, 28); rim.position.set(-3.6, 1.8, -2.8); scene.add(rim);
+    var under = new THREE.PointLight(0xff7a45, 1.1, 12); under.position.set(0, -1.2, 2); scene.add(under);
+    var fill = new THREE.DirectionalLight(0xf4ece0, 0.5); fill.position.set(-2, 3, 4); scene.add(fill);
 
-    /* --- келих: справжній профіль зі стінкою, ніжкою й основою --- */
-    function curve(arr, n){
-      return new THREE.SplineCurve(arr.map(function(p){ return new THREE.Vector2(p[0], p[1]); })).getPoints(n);
-    }
-    var outer = curve([[0,0],[.58,0],[.62,.025],[.58,.055],[.30,.09],[.09,.18],[.05,.42],[.045,.9],
-      [.06,1.22],[.15,1.40],[.40,1.55],[.64,1.82],[.74,2.2],[.70,2.6],[.58,2.9],[.55,3.0]], 110);
+    function curve(arr, n){ return new THREE.SplineCurve(arr.map(function(p){ return new THREE.Vector2(p[0], p[1]); })).getPoints(n); }
+    var outer = curve([[0,0],[.58,0],[.62,.025],[.58,.055],[.30,.09],[.09,.18],[.05,.42],[.045,.9],[.06,1.22],[.15,1.40],[.40,1.55],[.64,1.82],[.74,2.2],[.70,2.6],[.58,2.9],[.55,3.0]], 110);
     var inner = curve([[.525,3.0],[.555,2.9],[.675,2.6],[.715,2.2],[.615,1.84],[.38,1.58],[.12,1.43],[0,1.41]], 60);
     var profile = outer.concat([new THREE.Vector2(.5375, 3.012)], inner);
     var segs = window.innerWidth < 900 ? 72 : 112;
@@ -813,108 +577,69 @@ document.addEventListener('DOMContentLoaded', function(){
       clearcoat: 1, clearcoatRoughness: 0.02,
       transparent: true, opacity: 1, side: THREE.DoubleSide, envMapIntensity: 1.7
     });
-    var glass = new THREE.Mesh(new THREE.LatheGeometry(profile, segs), glassMat);
-    glass.renderOrder = 2;
-    rig.add(glass);
+    var glass = new THREE.Mesh(new THREE.LatheGeometry(profile, segs), glassMat); glass.renderOrder = 2; rig.add(glass);
 
     var goldMat = new THREE.MeshStandardMaterial({color:0xd9b45a, metalness:1, roughness:0.2, envMapIntensity:2});
-    var rimRing = new THREE.Mesh(new THREE.TorusGeometry(.5375, .011, 12, segs), goldMat);
-    rimRing.rotation.x = Math.PI/2; rimRing.position.y = 3.008;
-    rig.add(rimRing);
-    var stemRing = new THREE.Mesh(new THREE.TorusGeometry(.062, .016, 12, 48), goldMat);
-    stemRing.rotation.x = Math.PI/2; stemRing.position.y = 1.34;
-    rig.add(stemRing);
+    var rimRing = new THREE.Mesh(new THREE.TorusGeometry(.5375, .011, 12, segs), goldMat); rimRing.rotation.x = Math.PI/2; rimRing.position.y = 3.008; rig.add(rimRing);
+    var stemRing = new THREE.Mesh(new THREE.TorusGeometry(.062, .016, 12, 48), goldMat); stemRing.rotation.x = Math.PI/2; stemRing.position.y = 1.34; rig.add(stemRing);
 
-    /* --- вино: щільний насичений колір + блискуча поверхня --- */
     var wine = new THREE.Mesh(
       new THREE.LatheGeometry(curve([[0,1.43],[.115,1.44],[.37,1.60],[.60,1.86],[.67,2.1]], 40), segs),
-      new THREE.MeshPhysicalMaterial({
-        color: 0x5a0414, emissive: 0x24030a, roughness: 0.12,
-        clearcoat: 1, clearcoatRoughness: 0.1, side: THREE.DoubleSide, envMapIntensity: 1.2
-      }));
+      new THREE.MeshPhysicalMaterial({color: 0x5a0414, emissive: 0x24030a, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.1, side: THREE.DoubleSide, envMapIntensity: 1.2})
+    );
     rig.add(wine);
-    var surf = new THREE.Mesh(new THREE.CircleGeometry(.668, 72), new THREE.MeshPhysicalMaterial({
-      color: 0x8a0e22, emissive: 0x2a0409, roughness: 0.02, clearcoat: 1, clearcoatRoughness: 0.01,
-      envMapIntensity: 2.6, side: THREE.DoubleSide
-    }));
-    surf.rotation.x = -Math.PI/2; surf.position.y = 2.1;
-    rig.add(surf);
-    var meniscus = new THREE.Mesh(new THREE.TorusGeometry(.672, .008, 10, 96),
-      new THREE.MeshPhysicalMaterial({color:0xb0203a, roughness:0.05, envMapIntensity:2.4}));
-    meniscus.rotation.x = Math.PI/2; meniscus.position.y = 2.1;
-    rig.add(meniscus);
+    var surf = new THREE.Mesh(new THREE.CircleGeometry(.668, 72), new THREE.MeshPhysicalMaterial({color: 0x8a0e22, emissive: 0x2a0409, roughness: 0.02, clearcoat: 1, clearcoatRoughness: 0.01, envMapIntensity: 2.6, side: THREE.DoubleSide}));
+    surf.rotation.x = -Math.PI/2; surf.position.y = 2.1; rig.add(surf);
+    var meniscus = new THREE.Mesh(new THREE.TorusGeometry(.672, .008, 10, 96), new THREE.MeshPhysicalMaterial({color:0xb0203a, roughness:0.05, envMapIntensity:2.4}));
+    meniscus.rotation.x = Math.PI/2; meniscus.position.y = 2.1; rig.add(meniscus);
 
-    /* --- підставка з кавказьким орнаментом --- */
-    var pc = document.createElement('canvas');
-    pc.width = pc.height = 1024;
+    var pc = document.createElement('canvas'); pc.width = pc.height = 1024;
     var p = pc.getContext('2d');
-    var pg = p.createRadialGradient(512, 512, 0, 512, 512, 512);
-    pg.addColorStop(0, '#3a2012'); pg.addColorStop(1, '#170c07');
-    p.fillStyle = pg; p.fillRect(0, 0, 1024, 1024);
+    var pg = p.createRadialGradient(512,512,0,512,512,512);
+    pg.addColorStop(0,'#3a2012'); pg.addColorStop(1,'#170c07');
+    p.fillStyle = pg; p.fillRect(0,0,1024,1024);
     p.strokeStyle = '#e2a94e'; p.fillStyle = '#e2a94e';
-    [500, 488, 392, 384].forEach(function(r, i){
-      p.lineWidth = i % 2 ? 1.5 : 3; p.beginPath(); p.arc(512, 512, r, 0, 6.2832); p.stroke();
-    });
-    for (var n = 0; n < 32; n++){
-      p.save(); p.translate(512, 512); p.rotate(n / 32 * 6.2832);
+    [500,488,392,384].forEach(function(r,i){ p.lineWidth = i%2?1.5:3; p.beginPath(); p.arc(512,512,r,0,6.2832); p.stroke(); });
+    for (var n=0; n<32; n++){
+      p.save(); p.translate(512,512); p.rotate(n/32*6.2832);
       p.beginPath(); p.moveTo(0,-466); p.lineTo(17,-442); p.lineTo(0,-418); p.lineTo(-17,-442); p.closePath(); p.fill();
-      p.beginPath(); p.arc(0,-404,3,0,6.2832); p.fill();
-      p.restore();
+      p.beginPath(); p.arc(0,-404,3,0,6.2832); p.fill(); p.restore();
     }
-    var plTex = new THREE.CanvasTexture(pc);
-    plTex.encoding = THREE.sRGBEncoding;
-    plTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    var plTex = new THREE.CanvasTexture(pc); plTex.encoding = THREE.sRGBEncoding; plTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
     var plMat = new THREE.MeshStandardMaterial({map: plTex, metalness: 0.65, roughness: 0.38, envMapIntensity: 1.3});
     var plinth = new THREE.Mesh(new THREE.CylinderGeometry(1.15, 1.2, 0.08, 96),
       [new THREE.MeshStandardMaterial({color:0x2a0710, metalness:.8, roughness:.3}), plMat, plMat]);
-    plinth.position.y = -0.04;
-    rig.add(plinth);
+    plinth.position.y = -0.04; rig.add(plinth);
 
-    /* --- золоте сяйво позаду + іскри, що здіймаються --- */
     function dotTex(inner, outer){
       var c = document.createElement('canvas'); c.width = c.height = 128;
-      var x = c.getContext('2d');
-      var gr = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+      var x = c.getContext('2d'); var gr = x.createRadialGradient(64,64,0,64,64,64);
       gr.addColorStop(0, inner); gr.addColorStop(1, outer);
-      x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
-      return new THREE.CanvasTexture(c);
+      x.fillStyle = gr; x.fillRect(0,0,128,128); return new THREE.CanvasTexture(c);
     }
-    var halo = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: dotTex('rgba(255,190,110,.55)', 'rgba(255,190,110,0)'),
-      blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: .5
-    }));
-    halo.scale.set(7.5, 7.5, 1); halo.position.set(0, 1.7, -2.2);
-    rig.add(halo);
+    var halo = new THREE.Sprite(new THREE.SpriteMaterial({map: dotTex('rgba(255,190,110,.55)','rgba(255,190,110,0)'), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: .5}));
+    halo.scale.set(7.5, 7.5, 1); halo.position.set(0, 1.7, -2.2); rig.add(halo);
 
     var COUNT = 90, pos = new Float32Array(COUNT * 3), spd = [];
-    for (var k = 0; k < COUNT; k++){
+    for (var k=0; k<COUNT; k++){
       var rr = 0.9 + Math.random() * 2.6, a2 = Math.random() * 6.2832;
       pos[k*3] = Math.cos(a2) * rr; pos[k*3+1] = Math.random() * 3.6; pos[k*3+2] = Math.sin(a2) * rr - 0.8;
       spd.push(0.12 + Math.random() * 0.25);
     }
-    var pgeo = new THREE.BufferGeometry();
-    pgeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    var sparks = new THREE.Points(pgeo, new THREE.PointsMaterial({
-      map: dotTex('rgba(255,224,160,1)', 'rgba(255,224,160,0)'), size: 0.12, sizeAttenuation: true,
-      color: 0xffe0a0, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false
-    }));
+    var pgeo = new THREE.BufferGeometry(); pgeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    var sparks = new THREE.Points(pgeo, new THREE.PointsMaterial({map: dotTex('rgba(255,224,160,1)','rgba(255,224,160,0)'), size: 0.12, sizeAttenuation: true, color: 0xffe0a0, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false}));
     rig.add(sparks);
 
     function fit(){
-      var asp = W() / H();
-      var sc = Math.min(1, asp * 1.7);
+      var asp = W() / H(); var sc = Math.min(1, asp * 1.7);
       rig.scale.setScalar(sc);
       rig.position.x = asp > 1.2 ? asp * 0.95 : 0;
       rig.position.y = -1.5 * sc - (asp < 1.2 ? 0.2 : 0);
     }
-    fit();
-    window.addEventListener('resize', fit);
+    fit(); window.addEventListener('resize', fit);
 
-    var tx = 0, ty = 0, mx = 0, my = 0;
-    window.addEventListener('pointermove', function(e){
-      tx = (e.clientX / window.innerWidth - 0.5) * 2;
-      ty = (e.clientY / window.innerHeight - 0.5) * 2;
-    });
+    var tx=0, ty=0, mx=0, my=0;
+    window.addEventListener('pointermove', function(e){ tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; });
 
     var clock = new THREE.Clock(), last = 0;
     function loop(){
@@ -924,9 +649,9 @@ document.addEventListener('DOMContentLoaded', function(){
       plinth.rotation.y = t * 0.18;
       rig.rotation.y = mx * 0.35;
       rig.rotation.x = my * 0.05;
-      surf.rotation.x = -Math.PI/2 + Math.sin(t * 1.3) * 0.012;
-      surf.rotation.z = Math.cos(t * 1.1) * 0.012;
-      key.position.set(rig.position.x + Math.cos(t * 0.4) * 4, 4.4, Math.sin(t * 0.4) * 4);
+      surf.rotation.x = -Math.PI/2 + Math.sin(t*1.3) * 0.012;
+      surf.rotation.z = Math.cos(t*1.1) * 0.012;
+      key.position.set(rig.position.x + Math.cos(t*0.4) * 4, 4.4, Math.sin(t*0.4) * 4);
       halo.material.opacity = 0.5 + Math.sin(t * 1.6) * 0.06;
       var ps = pgeo.attributes.position.array;
       for (var i = 0; i < COUNT; i++){
@@ -944,11 +669,7 @@ document.addEventListener('DOMContentLoaded', function(){
     loop();
 
     if (window.ResizeObserver){
-      new ResizeObserver(function(){
-        renderer.setSize(W(), H());
-        camera.aspect = W()/H();
-        camera.updateProjectionMatrix();
-      }).observe(host);
+      new ResizeObserver(function(){ renderer.setSize(W(), H()); camera.aspect = W()/H(); camera.updateProjectionMatrix(); }).observe(host);
     }
   }
 });
@@ -956,250 +677,215 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 var nav = document.getElementById('nav');
-function onScroll(){
-  var y = window.scrollY || window.pageYOffset;
-  if (y > 60){ nav.classList.add('scrolled'); }
-  else { nav.classList.remove('scrolled'); }
-}
-window.addEventListener('scroll', onScroll, {passive:true});
-onScroll();
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', (window.scrollY || window.pageYOffset) > 60);
+}, {passive:true});
 
-/* ============ PHOTOS ============ */
 var PHOTO = {
-  bread:     "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80&auto=format&fit=crop",
-  cold1:     "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=80&auto=format&fit=crop",
-  cold:      "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=900&q=80&auto=format&fit=crop",
-  coffee:    "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=900&q=80&auto=format&fit=crop",
-  juice:     "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=900&q=80&auto=format&fit=crop",
-  lemonade:  "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?w=900&q=80&auto=format&fit=crop",
-  dessert:   "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=900&q=80&auto=format&fit=crop",
-  beer:      "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=900&q=80&auto=format&fit=crop",
-  tincture:  "https://images.unsplash.com/photo-1560512823-829485b8bf24?w=900&q=80&auto=format&fit=crop",
-  vodka:     "https://images.unsplash.com/photo-1607622750671-6cd9a99eabd1?w=900&q=80&auto=format&fit=crop",
-  chacha:    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80&auto=format&fit=crop",
-  cognac:    "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=900&q=80&auto=format&fit=crop",
-  cognac2:   "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=900&q=80&auto=format&fit=crop",
-  whiskey:   "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=900&q=80&auto=format&fit=crop",
-  rum:       "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80&auto=format&fit=crop",
-  georgia:   "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&q=80&auto=format&fit=crop",
-  italy:     "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&q=80&auto=format&fit=crop",
-  spain:     "https://images.unsplash.com/photo-1474722883778-792e7990302f?w=900&q=80&auto=format&fit=crop",
-  france:    "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
-  ukraine:   "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&q=80&auto=format&fit=crop",
-  usa:       "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&q=80&auto=format&fit=crop",
-  vermouth:  "https://images.unsplash.com/photo-1560512823-829485b8bf24?w=900&q=80&auto=format&fit=crop",
-  tequila:   "https://images.unsplash.com/photo-1516535794938-6063878f08cc?w=900&q=80&auto=format&fit=crop",
-  gin:       "https://images.unsplash.com/photo-1608885898957-a559228e8749?w=900&q=80&auto=format&fit=crop",
-  liqueur:   "https://images.unsplash.com/photo-1560508180-03f285f67ded?w=900&q=80&auto=format&fit=crop",
-  sparkling: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
-  champagne: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
-  ayran:     "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&auto=format&fit=crop",
-  mulled:    "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900&q=80&auto=format&fit=crop"
+  bread:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80&auto=format&fit=crop",
+  cold1:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=80&auto=format&fit=crop",
+  cold:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=900&q=80&auto=format&fit=crop",
+  coffee:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=900&q=80&auto=format&fit=crop",
+  juice:"https://images.unsplash.com/photo-1613478223719-2ab802602423?w=900&q=80&auto=format&fit=crop",
+  lemonade:"https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?w=900&q=80&auto=format&fit=crop",
+  dessert:"https://images.unsplash.com/photo-1551024506-0bccd828d307?w=900&q=80&auto=format&fit=crop",
+  beer:"https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=900&q=80&auto=format&fit=crop",
+  tincture:"https://images.unsplash.com/photo-1560512823-829485b8bf24?w=900&q=80&auto=format&fit=crop",
+  vodka:"https://images.unsplash.com/photo-1607622750671-6cd9a99eabd1?w=900&q=80&auto=format&fit=crop",
+  chacha:"https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80&auto=format&fit=crop",
+  cognac:"https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=900&q=80&auto=format&fit=crop",
+  cognac2:"https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=900&q=80&auto=format&fit=crop",
+  whiskey:"https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=900&q=80&auto=format&fit=crop",
+  rum:"https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80&auto=format&fit=crop",
+  georgia:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&q=80&auto=format&fit=crop",
+  italy:"https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&q=80&auto=format&fit=crop",
+  spain:"https://images.unsplash.com/photo-1474722883778-792e7990302f?w=900&q=80&auto=format&fit=crop",
+  france:"https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
+  ukraine:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=900&q=80&auto=format&fit=crop",
+  usa:"https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&q=80&auto=format&fit=crop",
+  vermouth:"https://images.unsplash.com/photo-1560512823-829485b8bf24?w=900&q=80&auto=format&fit=crop",
+  tequila:"https://images.unsplash.com/photo-1516535794938-6063878f08cc?w=900&q=80&auto=format&fit=crop",
+  gin:"https://images.unsplash.com/photo-1608885898957-a559228e8749?w=900&q=80&auto=format&fit=crop",
+  liqueur:"https://images.unsplash.com/photo-1560508180-03f285f67ded?w=900&q=80&auto=format&fit=crop",
+  sparkling:"https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
+  champagne:"https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=900&q=80&auto=format&fit=crop",
+  ayran:"https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&auto=format&fit=crop",
+  mulled:"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900&q=80&auto=format&fit=crop"
 };
 
-/* ============ MENU ============ */
 var MENU = [
-  /* ЦІНИ НА СТРАВИ — ПРИКЛАД. Заміни на свої. */
-  { cat:"Хінкалі", title:"Хінкалі", emoji:"🥟", items:[
+  {cat:"Хінкалі", title:"Хінкалі", emoji:"🥟", items:[
     ["Хінкалі з телятиною та свининою", "40 ₴ / шт", "Класичні, з бульйоном і чорним перцем"],
     ["Хінкалі з бараниною", "45 ₴ / шт", "З кінзою та зірою"],
     ["Хінкалі з сулугуні", "40 ₴ / шт", "Для тих, хто без м'яса"],
     ["Хінкалі з грибами", "38 ₴ / шт"]
   ]},
-  { cat:"Хачапурі", title:"Хачапурі", emoji:"🫓", items:[
+  {cat:"Хачапурі", title:"Хачапурі", emoji:"🫓", items:[
     ["Хачапурі по-аджарськи", "220 ₴", "Сир, яйце, вершкове масло"],
     ["Хачапурі по-імеретинськи", "190 ₴", "Закритий, з імеретинським сиром"],
     ["Хачапурі по-мегрельськи", "230 ₴", "Сир і всередині, і зверху"]
   ]},
-  { cat:"Мангал", title:"Мангал", emoji:"🍢", items:[
+  {cat:"Мангал", title:"Мангал", emoji:"🍢", items:[
     ["Шашлик зі свинини", "95 ₴ / 100 г"],["Шашлик з баранини", "140 ₴ / 100 г"],
     ["Шашлик курячий", "80 ₴ / 100 г"],["Люля-кебаб", "100 ₴ / 100 г"],
     ["Овочі на мангалі", "120 ₴"]
   ]},
-  { cat:"Супи й гаряче", title:"Супи й гаряче", emoji:"🍲", items:[
+  {cat:"Супи й гаряче", title:"Супи й гаряче", emoji:"🍲", items:[
     ["Харчо", "170 ₴", "Гострий яловичий суп з горіхами"],
     ["Чахохбілі", "240 ₴", "Курка в томатах і зелені"],
     ["Чанахі", "260 ₴", "Баранина з баклажанами в горщику"],
     ["Чакапулі", "280 ₴", "Ягня з ткемалі та тархуном"],
     ["Лобіо в горщику", "150 ₴"]
   ]},
-  { cat:"Закуски", title:"Закуски й салати", emoji:"🥗", items:[
+  {cat:"Закуски", title:"Закуски й салати", emoji:"🥗", items:[
     ["Пхалі (асорті)", "150 ₴", "Шпинат, буряк, квасоля з волоськими горіхами"],
     ["Баклажани з горіхами", "170 ₴"],["Сулугуні смажений", "150 ₴"],
     ["Грузинський салат", "160 ₴"],["Сир і зелень", "110 ₴"]
   ]},
-  { cat:"Хліб", title:"Хліб", photo:"bread", items:[
-    ["Кавказький лаваш", "25 ₴"],["Шоті пурі", "55 ₴"]
+  {cat:"Хліб", title:"Хліб", photo:"bread", items:[["Кавказький лаваш","25 ₴"],["Шоті пурі","55 ₴"]]},
+  {cat:"Холодні напої 1", title:"Холодні напої 1", photo:"cold1", items:[
+    ["Мохіто б.а","150 ₴"],["Піна Колада б.а","150 ₴"],["Еспресо-тонік","150 ₴"],
+    ["Блакитна лагуна","150 ₴"],["Апероль б.а","180 ₴"],["Бамбл","150 ₴"],["Холодильник pepsi","—"]
   ]},
-  { cat:"Холодні напої 1", title:"Холодні напої 1", photo:"cold1", items:[
-    ["Мохіто б.а", "150 ₴"],["Піна Колада б\\а", "150 ₴"],["Еспресо-тонік", "150 ₴"],
-    ["Блакитна лагуна", "150 ₴"],["Апероль б\\а", "180 ₴"],["Бамбл", "150 ₴"],
-    ["Холодильник pepsi", "—"]
+  {cat:"Холодні напої", title:"Холодні напої", photo:"cold", items:[
+    ["Компот","50 ₴"],["Компот 1Л","180 ₴"],["Узвар","50 ₴"],["Узвар 1Л","180 ₴"]
   ]},
-  { cat:"Холодні напої", title:"Холодні напої", photo:"cold", items:[
-    ["Компот", "50 ₴"],["Компот 1Л", "180 ₴"],["Узвар", "50 ₴"],["Узвар 1Л", "180 ₴"]
+  {cat:"Кава", title:"Кава", photo:"coffee", items:[
+    ["Американо","65 ₴"],["Американо з молоком","75 ₴"],["Еспресо","65 ₴"],
+    ["Еспресо з молоком","75 ₴"],["Капучіно","100 ₴"],["Лате","110 ₴"],
+    ["Чай імбирний","110 ₴"],["Чай в асортименті заварний","80 ₴"],["Чай цитрусовий","110 ₴"],
+    ["Грузинський Глінтвейн","160 ₴"],["Глінтвейн безалкогольний","130 ₴"]
   ]},
-  { cat:"Кава", title:"Кава", photo:"coffee", items:[
-    ["Американо", "65 ₴"],["Американо з молоком", "75 ₴"],["Еспресо", "65 ₴"],
-    ["Еспресо з молоком", "75 ₴"],["Капучіно", "100 ₴"],["Лате", "110 ₴"],
-    ["Чай імбирний", "110 ₴"],["Чай в асортименті заварний", "80 ₴"],
-    ["Чай цитрусовий", "110 ₴"],["Грузинський Глінтвейн", "160 ₴"],
-    ["Глінтвейн безалкогольний", "130 ₴"]
+  {cat:"Соки", title:"Соки", photo:"juice", items:[["Сік","—"]]},
+  {cat:"Лимонад", title:"Лимонад", photo:"lemonade", items:[
+    ["Лимонад фірмовий в асортименті","60 ₴"],["1 ЛІТР Лимонад фірмовий в асорт.","180 ₴"]
   ]},
-  { cat:"Соки", title:"Соки", photo:"juice", items:[["Сік", "—"]]},
-  { cat:"Лимонад", title:"Лимонад", photo:"lemonade", items:[
-    ["Лимонад фірмовий в асортименті", "60 ₴"],
-    ["1 ЛІТР Лимонад фірмовий в асорт.", "180 ₴"]
+  {cat:"Десерти", title:"Десерти", photo:"dessert", items:[
+    ["Десерт в Асортименті","210 ₴"],["Морозиво","100 ₴"],["Панакотидзе","130 ₴"],["Пахлава","105 ₴"]
   ]},
-  { cat:"Десерти", title:"Десерти", photo:"dessert", items:[
-    ["Десерт в Асортименті", "210 ₴"],["Морозиво", "100 ₴"],
-    ["Панакотидзе", "130 ₴"],["Пахлава", "105 ₴"]
+  {cat:"Пиво", title:"Пиво", photo:"beer", items:[
+    ["Corona Extra 4,5% 0.33л","135 ₴"],["Карлсберг б/а світле 0,5% 0,45л","120 ₴"],
+    ["Карлсберг 0,5","100 ₴"],["Карлсберг 0,3","75 ₴"],
+    ["Грімберген Блонд 0,5","180 ₴"],["Грімберген Блонд 0,3","130 ₴"],
+    ["Кроненбург Бланк 0,5","140 ₴"],["Кроненбург Бланк 0,3","105 ₴"],
+    ["Львівське Dunkel 0,5","90 ₴"],["Львівське Dunkel 0,3","70 ₴"]
   ]},
-  { cat:"Пиво", title:"Пиво", photo:"beer", items:[
-    ["Пиво Corona Extra 4,5% 0.33л", "135 ₴"],
-    ["Пиво б/а Карлсберг світле 0,5% 0,45л", "120 ₴"],
-    ["Пиво Карлсберг 0,5", "100 ₴"],["Пиво Карлсберг 0,3", "75 ₴"],
-    ["Пиво Грімберген Блонд 0,5", "180 ₴"],["Пиво Грімберген Блонд 0,3", "130 ₴"],
-    ["Пиво Кроненбург Бланк 0,5", "140 ₴"],["Пиво Кроненбург Бланк 0,3", "105 ₴"],
-    ["Пиво Львівське Dunkel 0,5", "90 ₴"],["Пиво Львівське Dunkel 0,3", "70 ₴"]
+  {cat:"Настоянки", title:"Настоянки", photo:"tincture", items:[
+    ["Лікер Becherovka настоянка на травах 38%","160 ₴ / 100 г"],
+    ["Наливка «Гранат»","110 ₴ / 100 г"],["Наливка «Груша»","110 ₴ / 100 г"],
+    ["Наливка «Ківі»","110 ₴ / 100 г"],["Лікер Jagermeister","190 ₴ / 100 г"],
+    ["Наливка «Полуниця»","110 ₴ / 100 г"],["Наливка «Спотикач»","110 ₴ / 100 г"]
   ]},
-  { cat:"Настоянки", title:"Настоянки", photo:"tincture", items:[
-    ["Лікер Becherovka настоянка на травах 38%", "160 ₴ / 100 г"],
-    ["Наливка \"Гранат\"", "110 ₴ / 100 г"],["Наливка \"Груша\"", "110 ₴ / 100 г"],
-    ["Наливка \"Ківі\"", "110 ₴ / 100 г"],["Лікер Jagermeister", "190 ₴ / 100 г"],
-    ["Наливка \"Полуниця\"", "110 ₴ / 100 г"],["Наливка \"Спотикач\"", "110 ₴ / 100 г"]
+  {cat:"Горілка", title:"Горілка", photo:"vodka", items:[
+    ["Горілка BJM","140 ₴ / 100 г"],["Горілка Козацька рада «Класична»","100 ₴ / 100 г"],
+    ["Горілка Фінляндія біла","150 ₴ / 100 г"],
+    ["Чача Дуруджи Велі. Кахетинська 50%","200 ₴ / 100 г"],
+    ["Чача Дуруджи Велі. Кахетинська витримана 50%","210 ₴ / 100 г"],
+    ["Чача Дуруджи Велі. Кахетинська преміум витримана 50%","220 ₴ / 100 г"],
+    ["Чача Дуруджи Велі. Кахетинська преміум 50%","220 ₴ / 100 г"]
   ]},
-  { cat:"Горілка", title:"Горілка", photo:"vodka", items:[
-    ["Горілка BJM", "140 ₴ / 100 г"],
-    ["Горілка Козацька рада «Класична»", "100 ₴ / 100 г"],
-    ["Горілка Фінляндія біла", "150 ₴ / 100 г"],
-    ["Чача Дуруджи Велі. Кахетинська 50%", "200 ₴ / 100 г"],
-    ["Чача Дуруджи Велі. Кахетинська витримана 50%", "210 ₴ / 100 г"],
-    ["Чача Дуруджи Велі. Кахетинська преміум витримана 50%", "220 ₴ / 100 г"],
-    ["Чача Дуруджи Велі. Кахетинська преміум 50%", "220 ₴ / 100 г"]
+  {cat:"Чача NEW", title:"Чача NEW", photo:"chacha", items:[
+    ["Чача KTW Горіх 45%","200 ₴ / 100 г"],["Чача KTW Мцване 45%","200 ₴ / 100 г"],["Чача KTW Тархун 45%","200 ₴ / 100 г"]
   ]},
-  { cat:"Чача NEW", title:"Чача NEW", photo:"chacha", items:[
-    ["Чача KTW Горіх 45%", "200 ₴ / 100 г"],
-    ["Чача KTW Мцване 45%", "200 ₴ / 100 г"],
-    ["Чача KTW Тархун 45%", "200 ₴ / 100 г"]
+  {cat:"Коньяк Вірменія", title:"Коньяк Вірменія", photo:"cognac", items:[
+    ["Бренді Легенда Вірменії (5 років)","200 ₴ / 100 г"],
+    ["Бренді Коблево (5 зірочок, 40%)","160 ₴ / 100 г"],
+    ["Бренді Коблево (3 зірочки, 40%)","140 ₴ / 100 г"],
+    ["Бренді Легенда Вірменії (3 роки)","180 ₴ / 100 г"]
   ]},
-  { cat:"Коньяк Вірменія", title:"Коньяк Вірменія", photo:"cognac", items:[
-    ["Бренді Легенда Вірменії (5 років)", "200 ₴ / 100 г"],
-    ["Бренді Коблево (5 зірочок, 40%)", "160 ₴ / 100 г"],
-    ["Бренді Коблево (3 зірочки, 40%)", "140 ₴ / 100 г"],
-    ["Бренді Легенда Вірменії (3 роки)", "180 ₴ / 100 г"]
+  {cat:"Коньяк Грузія", title:"Коньяк Грузія", photo:"cognac2", items:[
+    ["Коньяк Hennessy VS 40%","420 ₴ / 100 г"],
+    ["Бренді Дуруджи Велі. 5 зірок 40%","200 ₴ / 100 г"],
+    ["Бренді Дуруджи Велі. 3 зірок 40%","180 ₴ / 100 г"]
   ]},
-  { cat:"Коньяк Грузія", title:"Коньяк Грузія", photo:"cognac2", items:[
-    ["Коньяк Hennessy VS 40%", "420 ₴ / 100 г"],
-    ["Бренді Дуруджи Велі. 5 зірок 40%", "200 ₴ / 100 г"],
-    ["Бренді Дуруджи Велі. 3 зірок 40%", "180 ₴ / 100 г"]
+  {cat:"Віскі", title:"Віскі", photo:"whiskey", items:[
+    ["Віскі Шотландський Каттос 40%","210 ₴ / 100 г"],["Віскі Сhivas Regal 12років","400 ₴ / 100 г"],
+    ["Віскі Jameson","300 ₴ / 100 г"],["Віскі Джек Деніелс","300 ₴ / 100 г"],
+    ["Віскі Погіс Ірландія 40% Limited","220 ₴ / 100 г"],
+    ["Віскі Погіс Ірландія односолодовий 40%","260 ₴ / 100 г"],
+    ["Віскі Шотл Ханкі Баністер бленд 40%","190 ₴ / 100 г"],
+    ["Лікер Погіс Хані (мед) Ірландія 35%","240 ₴ / 100 г"]
   ]},
-  { cat:"Віскі", title:"Віскі", photo:"whiskey", items:[
-    ["Віскі Шотландський Каттос 40%", "210 ₴ / 100 г"],
-    ["Віскі Сhivas Regal 12років", "400 ₴ / 100 г"],
-    ["Віскі Jameson", "300 ₴ / 100 г"],["Віскі Джек Деніелс", "300 ₴ / 100 г"],
-    ["Віскі Погіс Ірландія 40% Limited", "220 ₴ / 100 г"],
-    ["Віскі Погіс Ірландія односолодовий 40%", "260 ₴ / 100 г"],
-    ["Віскі Шотл Ханкі Баністер бленд 40% New Design Original", "190 ₴ / 100 г"],
-    ["Лікер Погіс Хані (мед) Ірландія 35%", "240 ₴ / 100 г"]
+  {cat:"РОМ", title:"Ром", photo:"rum", items:[
+    ["Ром Кана Карибія Блек 38%","160 ₴ / 100 г"],["Ром Кана Карибія Спайсед Голд 35%","160 ₴ / 100 г"],
+    ["Ром Кана Карибія Вайт 38%","160 ₴ / 100 г"],["РОМ Ботафого Вайт Рум","240 ₴ / 100 г"],
+    ["Ром Ботафого Блэк Рум","240 ₴ / 100 г"],["РОМ Ботафого Спайсед Рум","240 ₴ / 100 г"]
   ]},
-  { cat:"РОМ", title:"Ром", photo:"rum", items:[
-    ["Ром Кана Карибія Блек 38%", "160 ₴ / 100 г"],
-    ["Ром Кана Карибія Спайсед Голд 35%", "160 ₴ / 100 г"],
-    ["Ром Кана Карибія Вайт 38%", "160 ₴ / 100 г"],
-    ["РОМ Ботафого Вайт Рум", "240 ₴ / 100 г"],
-    ["Ром Ботафого Блэк Рум", "240 ₴ / 100 г"],
-    ["РОМ Ботафого Спайсед Рум", "240 ₴ / 100 г"]
+  {cat:"Вина Грузії", title:"Вина Грузії", photo:"georgia", items:[
+    ["Вино Дуруджи Велі. Алазанська долина біле, напівсолодке","87 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Алазанська долина червоне, напівсолодке","87 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Кіндзмараулі червоне, напівсолодке","127 ₴ / 100 г"],
+    ["Вино Дуруджі Вели. Кісі біле, напівсолодке","97 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Мукузані червоне, сухе","130 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Мускат рожеве, напівсолодке","93 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Мцване біле","97 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Піросмані червоне напівсухе","93 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Сапераві червоне","110 ₴ / 100 г"],
+    ["Вино Дуруджі Вели. Сапераві Квеврі червоне сухе","120 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Цинандалі біле, сухе","110 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Чакруло біле сухе","83 ₴ / 100 г"],
+    ["Вино Дуруджи Велі. Чакруло червоне сухе","83 ₴ / 100 г"],
+    ["Вино Geo \"Mukuzani\" (сухе, черв. Грузія)","130 ₴ / 100 г"],
+    ["Вино Geo \"Kindzmarauli\" (н/сол., черв., Грузія)","127 ₴ / 100 г"]
   ]},
-  { cat:"Вина Грузії", title:"Вина Грузії", photo:"georgia", items:[
-    ["Вино Дуруджи Велі. Алазанська долина біле, напівсолодке", "87 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Алазанська долина червоне, напівсолодке", "87 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Кіндзмараулі червоне, напівсолодке", "127 ₴ / 100 г"],
-    ["Вино Дуруджі Вели. Кісі біле, напівсолодке", "97 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Мукузані червоне, сухе", "130 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Мускат рожеве, напівсолодке", "93 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Мцване біле", "97 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Піросмані червоне напівсухе", "93 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Сапераві червоне", "110 ₴ / 100 г"],
-    ["Вино Дуруджі Вели. Сапераві Квеврі червоне сухе", "120 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Цинандалі біле, сухе", "110 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Чакруло біле сухе", "83 ₴ / 100 г"],
-    ["Вино Дуруджи Велі. Чакруло червоне сухе", "83 ₴ / 100 г"],
-    ["Вино Geo \"Mukuzani\" (сухе, черв. Грузія)", "130 ₴ / 100 г"],
-    ["Вино Geo ''Kindzmarauli'' (н\\сол.,черв., Грузія)", "127 ₴ / 100 г"]
+  {cat:"Вина Італії", title:"Вина Італії", photo:"italy", items:[
+    ["Вино Decordi. Б`янко Амабіле біле","67 ₴ / 100 г"],
+    ["Вино Decordi. Б`янко Секхо біле","63 ₴ / 100 г"],
+    ["Вино Decordi. Россо Амабіле червоне","67 ₴ / 100 г"],
+    ["Вино Decordi. Россо Секхо червоне","63 ₴ / 100 г"],
+    ["Вино Sant`Ilario. К'янті червоне","123 ₴ / 100 г"]
   ]},
-  { cat:"Вина Італії", title:"Вина Італії", photo:"italy", items:[
-    ["Вино Decordi. Б`янко Амабіле біле", "67 ₴ / 100 г"],
-    ["Вино Decordi. Б`янко Секхо біле", "63 ₴ / 100 г"],
-    ["Вино Decordi. Россо Амабіле червоне", "67 ₴ / 100 г"],
-    ["Вино Decordi. Россо Секхо червоне", "63 ₴ / 100 г"],
-    ["Вино Sant`Ilario. К'янті червоне", "123 ₴ / 100 г"]
+  {cat:"Вина Іспанії", title:"Вина Іспанії", photo:"spain", items:[
+    ["Вино Vicente Gandia. Ель Пескаіто Файнест Селекшн Бланко","70 ₴ / 100 г"],
+    ["Вино Vicente Gandia. Ель Пескаіто Файнест Селекшн Тінто","70 ₴ / 100 г"],
+    ["Вино Lozano. Кабальерос де ла Роса Бланко Семидульче, біле","77 ₴ / 100 г"],
+    ["Вино Lozano. Кабальерос де ла Роса Тінто Семидульче, червоне","77 ₴ / 100 г"]
   ]},
-  { cat:"Вина Іспанії", title:"Вина Іспанії", photo:"spain", items:[
-    ["Вино Vicente Gandia. Ель Пескаіто Файнест Селекшн Бланко", "70 ₴ / 100 г"],
-    ["Вино Vicente Gandia. Ель Пескаіто Файнест Селекшн Тінто", "70 ₴ / 100 г"],
-    ["Вино Lozano. Кабальерос де ла Роса Бланко Семидульче, біле", "77 ₴ / 100 г"],
-    ["Вино Lozano. Кабальерос де ла Роса Тінто Семидульче, червоне", "77 ₴ / 100 г"]
+  {cat:"Вина Франції", title:"Вина Франції", photo:"france", items:[
+    ["Вино Kiwi Cuvee. Каберне Фран, рожеве","93 ₴ / 100 г"],
+    ["Вино Kiwi Cuvee. Піно Нуар червоне","93 ₴ / 100 г"],
+    ["Вино Kiwi Cuvee. Совіньон біле","93 ₴ / 100 г"]
   ]},
-  { cat:"Вина Франції", title:"Вина Франції", photo:"france", items:[
-    ["Вино Kiwi Cuvee. Каберне Фран, рожеве", "93 ₴ / 100 г"],
-    ["Вино Kiwi Cuvee. Піно Нуар червоне", "93 ₴ / 100 г"],
-    ["Вино Kiwi Cuvee. Совіньон біле", "93 ₴ / 100 г"]
+  {cat:"Вина України", title:"Вина України", photo:"ukraine", items:[
+    ["Вино Коблево Бордо «Бастардо» (н/сол., черв.)","53 ₴ / 100 г"],
+    ["Вино Коблево Бордо «Мускат» (н/сол., біле)","53 ₴ / 100 г"],
+    ["Вино Коблево Бордо «Сапераві» (сухе, черв.)","53 ₴ / 100 г"],
+    ["Вино Коблево Бордо «Шардоне» (сухе, біле)","53 ₴ / 100 г"]
   ]},
-  { cat:"Вина України", title:"Вина України", photo:"ukraine", items:[
-    ["Вино Коблево Бордо «Бастардо» (н/сол., черв.)", "53 ₴ / 100 г"],
-    ["Вино Коблево Бордо «Мускат» (н/сол., біле)", "53 ₴ / 100 г"],
-    ["Вино Коблево Бордо «Сапераві» (сухе, черв.)", "53 ₴ / 100 г"],
-    ["Вино Коблево Бордо «Шардоне» (сухе, біле)", "53 ₴ / 100 г"]
+  {cat:"Вина США", title:"Вина США", photo:"usa", items:[["Вино Sun Gate Зинфандель рожеве","87 ₴ / 100 г"]]},
+  {cat:"Вермут", title:"Вермут", photo:"vermouth", items:[
+    ["Вермут Мартіні Б'янко 15%","160 ₴ / 100 г"],["Вермут Чинзано Россо 18%","160 ₴ / 100 г"]
   ]},
-  { cat:"Вина США", title:"Вина США", photo:"usa", items:[
-    ["Вино Sun Gate Зинфандель рожеве", "87 ₴ / 100 г"]
+  {cat:"Текіла", title:"Текіла", photo:"tequila", items:[
+    ["Текіла Сієрра Бланко 38%","200 ₴ / 100 г"],["Текила Сієра Антігуа","230 ₴ / 100 г"]
   ]},
-  { cat:"Вермут", title:"Вермут", photo:"vermouth", items:[
-    ["Вермут Мартіні Б'янко 15%", "160 ₴ / 100 г"],
-    ["Вермут Чинзано Россо 18%", "160 ₴ / 100 г"]
+  {cat:"Джин", title:"Джин", photo:"gin", items:[
+    ["Джин Фінсбарі Платінум 47%","180 ₴ / 100 г"],["Джин Уітлі Нейлл, 43%","250 ₴ / 100 г"],["Джин Вілмор","140 ₴ / 100 г"]
   ]},
-  { cat:"Текіла", title:"Текіла", photo:"tequila", items:[
-    ["Текіла Сієрра Бланко 38%", "200 ₴ / 100 г"],
-    ["Текила Сієра Антігуа", "230 ₴ / 100 г"]
+  {cat:"Лікери", title:"Лікери", photo:"liqueur", items:[
+    ["Лікер Шаріс new design 17%","170 ₴ / 100 г"],["Лікер Volare «Sambuka Antica Classic»","140 ₴ / 100 г"]
   ]},
-  { cat:"Джин", title:"Джин", photo:"gin", items:[
-    ["Джин Фінсбарі Платінум 47%", "180 ₴ / 100 г"],
-    ["Джин Уітлі Нейлл, 43%", "250 ₴ / 100 г"],
-    ["Джин Вілмор", "140 ₴ / 100 г"]
+  {cat:"Ігристі вина", title:"Ігристі вина", photo:"sparkling", items:[
+    ["Martini Ігристе вино","860 ₴"],["Вино Decordi. Ламбруско Б`янко Амабіле біле","420 ₴"],
+    ["Вино ігристе Decordi. Фраголіно Б`янко біле","390 ₴"],
+    ["Вино ігристе Decordi. Фраголіно Россо червоне","390 ₴"],["Martini Prosecco","860 ₴"]
   ]},
-  { cat:"Лікери", title:"Лікери", photo:"liqueur", items:[
-    ["Лікер Шаріс new design 17%", "170 ₴ / 100 г"],
-    ["Лікер Volare «Sambuka Antica Classic»", "140 ₴ / 100 г"]
+  {cat:"Шампанське Італії", title:"Шампанське Італії", photo:"champagne", items:[
+    ["Вино ігристе Decordi. Просекко Спуманте брют біле","850 ₴"],
+    ["Вино ігристе Vicente Gandia. Кава Брют біле","760 ₴"]
   ]},
-  { cat:"Ігристі вина", title:"Ігристі вина", photo:"sparkling", items:[
-    ["Martini Ігристе вино", "860 ₴"],
-    ["Вино Decordi. Ламбруско Б`янко Амабіле біле", "420 ₴"],
-    ["Вино ігристе Decordi. Фраголіно Б`янко біле", "390 ₴"],
-    ["Вино ігристе Decordi. Фраголіно Россо червоне", "390 ₴"],
-    ["Martini Prosecco", "860 ₴"]
-  ]},
-  { cat:"Шампанське Італії", title:"Шампанське Італії", photo:"champagne", items:[
-    ["Вино ігристе Decordi. Просекко Спуманте брют біле", "850 ₴"],
-    ["Вино ігристе Vicente Gandia. Кава Брют біле", "760 ₴"]
-  ]},
-  { cat:"Айран", title:"Айран", photo:"ayran", items:[["Айран", "50 ₴"]]}
+  {cat:"Айран", title:"Айран", photo:"ayran", items:[["Айран","50 ₴"]]}
 ];
 
 var filtersEl = document.getElementById('filters');
 var gridEl = document.getElementById('grid');
 
 var allBtn = document.createElement('button');
-allBtn.className = 'chip on';
-allBtn.textContent = 'Усі';
-allBtn.dataset.cat = '__all';
+allBtn.className = 'chip on'; allBtn.textContent = 'Усі'; allBtn.dataset.cat = '__all';
 filtersEl.appendChild(allBtn);
-
 MENU.forEach(function(s){
   var b = document.createElement('button');
-  b.className = 'chip';
-  b.textContent = s.cat;
-  b.dataset.cat = s.cat;
+  b.className = 'chip'; b.textContent = s.cat; b.dataset.cat = s.cat;
   filtersEl.appendChild(b);
 });
 
@@ -1207,8 +893,7 @@ function applyPhoto(img, key){
   img.loading = 'lazy';
   img.src = PHOTO[key] || PHOTO.georgia;
   img.addEventListener('error', function(){
-    var p = img.parentNode;
-    img.remove();
+    var p = img.parentNode; img.remove();
     if (p) p.style.background = 'linear-gradient(140deg,#6a2018 0%,#2a160c 50%,#130a06 100%)';
   });
 }
@@ -1217,64 +902,36 @@ function render(cat){
   var q = (document.getElementById('q').value || '').trim().toLowerCase();
   gridEl.innerHTML = '';
   var list = (cat === '__all' || q) ? MENU : MENU.filter(function(s){ return s.cat === cat; });
-  if (q){ list = list.map(function(s){ return Object.assign({}, s, {items: s.items.filter(function(p){ return (p[0] + ' ' + (p[2] || '')).toLowerCase().indexOf(q) > -1; })}); }).filter(function(s){ return s.items.length; }); }
+  if (q) list = list.map(function(s){ return Object.assign({}, s, {items: s.items.filter(function(p){ return (p[0]+' '+(p[2]||'')).toLowerCase().indexOf(q) > -1; })}); }).filter(function(s){ return s.items.length; });
   if (!list.length){ gridEl.innerHTML = '<p class="empty">Нічого не знайдено. Спробуйте інше слово.</p>'; return; }
   list.forEach(function(sec, si){
-    var card = document.createElement('div');
-    card.className = 'card';
-    card.style.animationDelay = (si * 40) + 'ms';
-
-    var photo = document.createElement('div');
-    photo.className = 'photo';
-    if (sec.emoji){
-      photo.className = 'photo emo';
-      photo.setAttribute('aria-hidden','true');
-      photo.textContent = sec.emoji;
-    } else {
-      var img = document.createElement('img');
-      img.alt = sec.title;
-      applyPhoto(img, sec.photo);
-      photo.appendChild(img);
-    }
+    var card = document.createElement('div'); card.className = 'card'; card.style.animationDelay = (si*40)+'ms';
+    var photo = document.createElement('div'); photo.className = 'photo';
+    if (sec.emoji){ photo.className = 'photo emo'; photo.setAttribute('aria-hidden','true'); photo.textContent = sec.emoji; }
+    else { var img = document.createElement('img'); img.alt = sec.title; applyPhoto(img, sec.photo); photo.appendChild(img); }
     card.appendChild(photo);
-
-    var content = document.createElement('div');
-    content.className = 'content';
-
-    var h3 = document.createElement('h3');
-    h3.textContent = sec.title;
-    content.appendChild(h3);
-
+    var content = document.createElement('div'); content.className = 'content';
+    var h3 = document.createElement('h3'); h3.textContent = sec.title; content.appendChild(h3);
     var ul = document.createElement('ul');
     sec.items.forEach(function(pair){
       var li = document.createElement('li');
       var nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = pair[0];
-      var dot = document.createElement('span'); dot.className = 'dot';
-      var pr = document.createElement('span');
-      pr.className = 'pr' + (pair[1] === '—' ? ' muted' : '');
-      pr.textContent = pair[1];
-      li.appendChild(nm); li.appendChild(dot); li.appendChild(pr);
+      var pr = document.createElement('span'); pr.className = 'pr' + (pair[1] === '—' ? ' muted' : ''); pr.textContent = pair[1];
+      li.appendChild(nm); li.appendChild(pr);
       if (pair[2]){ var ds = document.createElement('span'); ds.className = 'ds'; ds.textContent = pair[2]; li.appendChild(ds); }
       ul.appendChild(li);
     });
-    content.appendChild(ul);
-    card.appendChild(content);
-    gridEl.appendChild(card);
+    content.appendChild(ul); card.appendChild(content); gridEl.appendChild(card);
   });
 }
 
 filtersEl.addEventListener('click', function(e){
-  var btn = e.target.closest('.chip');
-  if (!btn) return;
+  var btn = e.target.closest('.chip'); if (!btn) return;
   Array.prototype.forEach.call(filtersEl.querySelectorAll('.chip'), function(c){ c.classList.remove('on'); });
-  btn.classList.add('on');
-  render(btn.dataset.cat);
+  btn.classList.add('on'); render(btn.dataset.cat);
 });
 
-document.querySelectorAll('.feat .photo img').forEach(function(img){
-  applyPhoto(img, img.dataset.cat || 'georgia');
-});
-
+document.querySelectorAll('.feat .photo img').forEach(function(img){ applyPhoto(img, img.dataset.cat || 'georgia'); });
 document.getElementById('q').addEventListener('input', function(){
   var on = filtersEl.querySelector('.chip.on');
   render(on ? on.dataset.cat : '__all');
@@ -1285,12 +942,12 @@ if (tm && menuSec && 'IntersectionObserver' in window){
   new IntersectionObserver(function(es){ tm.classList.toggle('off', es[0].isIntersecting); }, {rootMargin:'-80px 0px -40% 0px'}).observe(menuSec);
 }
 
-/* 2026: прогрес скролу, поява блоків, підсвітка карток */
 var prog = document.getElementById('progress');
 window.addEventListener('scroll', function(){
   var h = document.documentElement.scrollHeight - innerHeight;
   prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
 }, {passive:true});
+
 var rv = document.querySelectorAll('.feat,.sec-head,.about div,.gallery figure');
 if ('IntersectionObserver' in window){
   var io = new IntersectionObserver(function(es){
@@ -1299,8 +956,7 @@ if ('IntersectionObserver' in window){
   rv.forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
 }
 document.addEventListener('pointermove', function(e){
-  var c = e.target.closest && e.target.closest('.card,.feat');
-  if (!c) return;
+  var c = e.target.closest && e.target.closest('.card,.feat'); if (!c) return;
   var r = c.getBoundingClientRect();
   c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
   c.style.setProperty('--my', (e.clientY - r.top) + 'px');
@@ -1313,24 +969,16 @@ render('__all');
   var de = document.documentElement, intro = document.getElementById('intro');
   if (!intro || !de.classList.contains('js') || de.classList.contains('done')){ de.classList.add('ready','done'); return; }
   var br = document.getElementById('introBrand');
-  'Кавказький двір'.split('').forEach(function(ch, i){
+  'Кавказький двір'.split('').forEach(function(ch,i){
     var sp = document.createElement('span');
     sp.textContent = ch === ' ' ? '\u00a0' : ch;
     sp.style.setProperty('--i', i);
     br.appendChild(sp);
   });
   var timers = [];
-  function at(f, ms){ timers.push(setTimeout(f, ms)); }
-  function open(){
-    intro.classList.add('open');
-    at(function(){ de.classList.add('ready'); }, 650);
-    at(function(){ de.classList.add('ready','done'); }, 1900);
-  }
-  function skip(){
-    if (intro.classList.contains('open')) return;
-    timers.forEach(clearTimeout); timers = [];
-    open();
-  }
+  function at(f,ms){ timers.push(setTimeout(f,ms)); }
+  function open(){ intro.classList.add('open'); at(function(){ de.classList.add('ready'); }, 650); at(function(){ de.classList.add('ready','done'); }, 1900); }
+  function skip(){ if (intro.classList.contains('open')) return; timers.forEach(clearTimeout); timers = []; open(); }
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ intro.classList.add('go'); }); });
   at(open, 2600);
   intro.addEventListener('click', skip);
